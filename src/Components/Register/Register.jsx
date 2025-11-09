@@ -87,7 +87,7 @@ const Register = () => {
     const handleGoogleSignIn = () =>{
         signInWithGoogle()
         .then( (res) =>{
-                console.log(res);
+            console.log(res);
             const newUser = {
                 name: res.user.displaName,
                 email: res.user.email,

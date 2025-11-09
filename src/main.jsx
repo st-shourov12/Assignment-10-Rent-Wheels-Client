@@ -12,6 +12,7 @@ import BrowseCar from './Components/BrowseCar/BrowseCar.jsx';
 import MyListing from './Components/MyListing/MyListing.jsx';
 import MyBookings from './Components/MyBookings/MyBookings.jsx';
 import AddCar from './Components/AddCar/AddCar.jsx';
+import CarDetails from './Components/CarDetails/CarDetails.jsx';
 // import Error from './Error/Error.jsx';
 
 const router = createBrowserRouter([
@@ -33,8 +34,12 @@ const router = createBrowserRouter([
         Component : Login
       },
       {
-        path: 'browseCar',
+        path: 'cars',
         Component : BrowseCar
+      },
+      {
+        path: 'cars/:id',
+        Component : CarDetails
       },
       {
         path: 'addCar',

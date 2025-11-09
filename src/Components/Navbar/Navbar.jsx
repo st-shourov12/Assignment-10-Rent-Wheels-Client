@@ -6,7 +6,7 @@ import UserProfile from './UserProfile';
 const Navbar = () => {
     const {user} = use(AuthContext);
 
-    console.log(user);
+    
     
 
    
@@ -24,7 +24,7 @@ const Navbar = () => {
                         <NavLink to={'/'}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/browseCar'}>Browse Car</NavLink>
+                        <NavLink to={'/cars'}>Browse Car</NavLink>
                     </li>
                     {
                         user && 
@@ -52,10 +52,10 @@ const Navbar = () => {
                         <NavLink to={'/'}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/browseCar'}>Browse Car</NavLink>
+                        <NavLink to={'/cars'}>Browse Car</NavLink>
                     </li>
                     {
-                        user && 
+                        user ?
                         <>
 
                             <li>
@@ -68,7 +68,7 @@ const Navbar = () => {
                                 <NavLink to={'bookings'}>My Bookings</NavLink>
                             </li>
                                         
-                        </>
+                        </>: <></>
                     }
                 </ul>
             </div>
