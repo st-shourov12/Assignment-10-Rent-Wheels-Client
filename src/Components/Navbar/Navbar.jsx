@@ -1,11 +1,17 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router';
+import React, { use } from 'react';
+import { NavLink } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext';
+import UserProfile from './UserProfile';
 
-const Navbar = ({user}) => {
+const Navbar = () => {
+    const {user} = use(AuthContext);
+
+    console.log(user);
+    
 
    
     return (
-        <nav className="navbar bg-[#6C63FF] text-[#1A202C] shadow-sm">
+        <nav className="navbar bg-[#6C63FF] text-white shadow-sm">
             <div className="navbar-start">
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -70,8 +76,11 @@ const Navbar = ({user}) => {
 
                 {
                     user ? 
-                    <Link to={'/signout'} >Sign Out</Link>:
-                    <Link to={'/login'}>Sign In</Link>
+                    <UserProfile></UserProfile> : 
+                    <div className='flex log-btn gap-2.5'>
+                        <NavLink to={'/login'} className={'px-3 py-2 bg-white text-green-700 rounded-lg border border-green-900'}>Login</NavLink>
+                        <NavLink to={'/register'} className={'px-3 py-2 bg-green-700 text-white rounded-lg border'}>Register</NavLink>
+                    </div>
                 }
                 
             </div>
