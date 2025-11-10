@@ -13,7 +13,8 @@ import MyListing from './Components/MyListing/MyListing.jsx';
 import MyBookings from './Components/MyBookings/MyBookings.jsx';
 import AddCar from './Components/AddCar/AddCar.jsx';
 import CarDetails from './Components/CarDetails/CarDetails.jsx';
-// import Error from './Error/Error.jsx';
+import PrivateRoutes from './Components/Route/PrivateRoute.jsx';
+import Error from './Error/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,26 +40,26 @@ const router = createBrowserRouter([
       },
       {
         path: 'cars/:id',
-        Component : CarDetails
+        element : <PrivateRoutes><CarDetails /></PrivateRoutes> 
       },
       {
         path: 'addCar',
-        element : <AddCar />
+        element : <PrivateRoutes><AddCar /></PrivateRoutes> 
       },
       {
         path: 'myList',
-        element : <MyListing />
+        element : <PrivateRoutes><MyListing /></PrivateRoutes> 
       },
       {
         path: 'bookings',
-        element: <MyBookings />
+        element: <PrivateRoutes> <MyBookings /></PrivateRoutes>
       },
     ]
   },
-  // {
-  //   path: '*',
-  //   element: <Error />
-  // }
+  {
+    path: '*',
+    element: <Error />
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

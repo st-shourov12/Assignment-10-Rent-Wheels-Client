@@ -135,7 +135,7 @@ const ListingCar = ({car,cars, setCars, }) => {
             </div>
             
             <div className='font-semibold '>
-                {
+               $ {
                     myCar?.rentPrice
                 }
                 <span className='font-normal'>/ Day</span>

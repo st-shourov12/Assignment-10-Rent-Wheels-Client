@@ -1,22 +1,57 @@
-import React from 'react';
+import React, { use, useRef } from 'react';
 import { useParams } from 'react-router';
 import useCars from '../UseHook/UseCars';
 import { toast } from 'react-toastify';
+import Error2 from '../../Error/Error2';
+import { AuthContext } from '../../Context/AuthContext';
 
 
 const CarDetails = () => {
 
     const { id }= useParams();
     const {cars ,setCars, changes} = useCars() ;
-    const filterCar = cars.find(car => (car._id) === (id))
+    const filterCar = cars.find(car => (car._id) === (id));
+    const {user} = use(AuthContext);
+
+        const confirmModalRef = useRef();
+
+
+
+
+    const handleModal = ()=> {
+
+        if (filterCar?.availability === "Booked") {
+            return toast.error('Sorry! Already Booked')
+        } else{
+        confirmModalRef.current.showModal()
+        }
+    };
+
+    const handleCancelBook = () => {
+        confirmModalRef.current.close()
+    }
     
-    const handleUpdate = (_id) =>{
+    const handleUpdate = (e, _id) =>{
+        e.preventDefault();
+
+        
+
+        const bookedCar = cars.filter(car => car._id === id );
+
+        const bookedInfo = bookedCar.find(item=> item?.availability);
 
 
         
-        // if (filterCar?.availability === "Booked") {
-        //     return toast.error('Sorry! Already Booked')
-        // }
+        const totalDays = e.target.totalDays.value;
+        const totalPrice = Number(bookedInfo?.rentPrice) * Number(totalDays) ; 
+
+        const date = new Date().toISOString().split('T')[0];
+
+
+
+
+        
+        
 
 
         fetch(`http://localhost:4000/cars/${_id}`,{
@@ -34,13 +69,49 @@ const CarDetails = () => {
                     { ...car, availability: 'Booked' } 
                     : car
                 );
+                data;
                 setCars(updatedCars);
                 changes();
-                toast.success(`You have booked Car ${data}`);
+                toast.success(`You have booked Car for ${totalDays}`);
             
             })
-    }
 
+        
+
+        const myCarBook = {
+                carId : bookedInfo?._id ,
+                name: user?.displayName,
+                email: user?.email,
+                image : user?.photoURL,
+                carStatus : bookedInfo?.availability,
+                category : bookedInfo.category,
+                rentPrice : bookedInfo?.rentPrice,
+                location : bookedInfo?.location,
+                totalDays : totalDays ,
+                totalPrice : totalPrice ,
+                today : date 
+            }
+
+            
+
+            fetch(`http://localhost:4000/myCars`,{
+                method: 'POST',
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(myCarBook)
+            })
+            .then(res=> res.json())
+            .then(data=>(data));
+
+            confirmModalRef.current.close();
+        
+    }
+  
+
+    if(!filterCar){
+        return <Error2></Error2>
+    }
    
 
     return (
@@ -90,10 +161,50 @@ const CarDetails = () => {
                         <p className="font-semibold">{filterCar?.providerName}</p>
                         <p className="text-gray-600">{filterCar?.providerEmail}</p>
                     </div>
+                    <div>
+                        <button type='button' onClick={()=>{handleModal()} }  className={`mt-6 w-full text-white py-3 rounded-lg ${filterCar?.availability === "Booked" ? 'bg-red-600' :'bg-blue-600 hover:bg-blue-700'} `}>
+                            Book Now
+                        </button>
 
-                    <button  onClick={()=>handleUpdate(filterCar?._id)} className={`mt-6 w-full text-white py-3 rounded-lg ${filterCar?.availability === "Booked" ? 'bg-red-600' :'bg-blue-600 hover:bg-blue-700'} `}>
-                        Book Now
-                    </button>
+
+                    <dialog ref={confirmModalRef} className="modal modal-bottom sm:modal-middle">
+                        <div className="modal-box">
+                            <h3 className="font-bold text-xl text-center text-black">Book Now ?</h3>
+                            
+                            {/* <div className="modal-action">  */}
+                                <form onSubmit={(e)=>handleUpdate(e, filterCar?._id)}  className='p-5 flex flex-col gap-4'>
+
+                                    <h3 className="text-xl">{filterCar?.carName}</h3>
+
+
+                                    
+                                        <fieldset className=''>
+                                            <label className="label w-full text-black my-3">Total Days</label>
+                                            <input required name='totalDays' type="number" className="input text-black w-full" placeholder="Total Days" />
+                                        </fieldset>
+                                        {/* <fieldset className='sm:w-1/2'>
+                                            <label className="label text-black">Location</label>
+                                            <input required name='location' type="text" className="input text-black w-full" placeholder="Location" />
+
+                                        </fieldset> */}
+                                    
+                                    <div className="flex justify-between gap-3">
+                                        <button type='submit' className="w-full py-3 text-white rounded-lg px-4 bg-blue-600 hover:bg-blue-700">Book</button>
+                                        <button type='button' onClick={()=>handleCancelBook()} className="bg-[#DC2626] hover:bg-red-800 rounded-lg text-white py-3 w-full">Cancel</button>
+
+                                    </div>
+
+
+
+                                </form>
+                            
+                                
+                            
+                            {/* </div> */}
+                        </div>
+                    </dialog>
+
+                    </div>
                 {/* </div> */}
                 
                 {/* disabled= {filterCar?.availability === "Booked"} */}

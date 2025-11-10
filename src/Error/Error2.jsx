@@ -1,8 +1,7 @@
 import React from 'react';
-import rrro from '../assets/error-404.png'
+import rrro from '../assets/App-Error.png'
 import { Link } from 'react-router';
-
-const Error = () => {
+const Error2 = () => {
     return (
         <div className='w-full bg-[#0F172A] flex flex-col justify-center items-center min-h-screen mx-auto'>
             <figure className='flex p-5 sm:p-10 lg:p-20 justify-center'>
@@ -15,4 +14,4 @@ const Error = () => {
     );
 };
 
-export default Error;
+export default Error2;
