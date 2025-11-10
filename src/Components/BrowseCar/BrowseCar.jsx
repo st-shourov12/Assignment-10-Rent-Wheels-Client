@@ -6,7 +6,7 @@ const BrowseCar = () => {
     const latestCarsPromise = fetch(`http://localhost:4000/cars`)
     .then(res=> res.json())
     return (
-        <div>
+        <div className='[bg-[#F5F7FA] '>
             <Suspense fallback='Loading.....'>
 
                 <LatestCars latestCarsPromise={latestCarsPromise}></LatestCars>

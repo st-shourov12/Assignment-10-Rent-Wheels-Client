@@ -11,7 +11,7 @@ const Navbar = () => {
 
    
     return (
-        <nav className="navbar bg-[#6C63FF] text-white shadow-sm">
+        <nav className="navbar bg-[#0F172A] text-[#06B6D4] shadow-sm">
             <div className="navbar-start">
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -97,3 +97,14 @@ export default Navbar;
 // Light: #F7FAFC (Off White)
 // Warning: #F6AD55 (Warm Orange)
 // Text: #1A202C
+
+
+// Background (body)	Very light gray	#F5F7FA
+// Navbar/Footer	Deep navy blue	#0F172A
+// Primary (buttons, highlights)	Bright blue	#2563EB
+// Secondary	Cyan	#06B6D4
+// Card background	White	#FFFFFF
+// Text (main)	Dark gray	#1E293B
+// Text (secondary)	Medium gray	#64748B
+// Success (Available cars)	Green	#16A34A
+// Danger (Booked cars)	Red	#DC2626

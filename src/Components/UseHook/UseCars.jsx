@@ -8,17 +8,21 @@ const useCars = () => {
     const [error , setError] = useState(null);
     const [loading , setLoading] = useState(true);
 
+    const [reload, setReload] = useState(false);
+
     useEffect(()=>{
         axios('http://localhost:4000/cars')
         .then(r => setCars(r.data))
         .catch(err => setError(err))
         .finally(()=>setLoading(false))
 
-    }, [cars])
+    }, [reload]);
+
+    const changes = () => setReload(!reload)
 
 
     return (
-        {cars , error ,loading}
+        {cars ,setCars, error ,loading, changes}
     );
 };
 

@@ -1,15 +1,22 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import useCars from '../UseHook/UseCars';
+import { toast } from 'react-toastify';
 
 
 const CarDetails = () => {
 
     const { id }= useParams();
-    const {cars ,setCars} = useCars() ;
+    const {cars ,setCars, changes} = useCars() ;
     const filterCar = cars.find(car => (car._id) === (id))
     
     const handleUpdate = (_id) =>{
+
+
+        
+        // if (filterCar?.availability === "Booked") {
+        //     return toast.error('Sorry! Already Booked')
+        // }
 
 
         fetch(`http://localhost:4000/cars/${_id}`,{
@@ -20,15 +27,17 @@ const CarDetails = () => {
                 body: JSON.stringify({
                     availability: 'Booked'
                 })
-            })
-            .then(res=> res.json())
-            .then(data=>{
+        })
+        .then(res=> res.json())
+        .then(data=>{
                 const updatedCars = cars.map(car => car._id === id ?
                     { ...car, availability: 'Booked' } 
                     : car
                 );
-                console.log("the data ",data);
-            setCars(updatedCars);
+                setCars(updatedCars);
+                changes();
+                toast.success(`You have booked Car ${data}`);
+            
             })
     }
 
@@ -82,12 +91,12 @@ const CarDetails = () => {
                         <p className="text-gray-600">{filterCar?.providerEmail}</p>
                     </div>
 
-                    <button onClick={()=>handleUpdate(filterCar?._id)} className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+                    <button  onClick={()=>handleUpdate(filterCar?._id)} className={`mt-6 w-full text-white py-3 rounded-lg ${filterCar?.availability === "Booked" ? 'bg-red-600' :'bg-blue-600 hover:bg-blue-700'} `}>
                         Book Now
                     </button>
                 {/* </div> */}
                 
-
+                {/* disabled= {filterCar?.availability === "Booked"} */}
                 
             </div>
             
