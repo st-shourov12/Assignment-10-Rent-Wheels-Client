@@ -4,7 +4,7 @@ import useCars from '../UseHook/UseCars';
 
 import { toast } from 'react-toastify';
 
-const ListingCar = ({car,cars, setCars, }) => {
+const ListingCar = ({car,cars, setCars, myCars}) => {
 
     const confirmModalRef = useRef();
     const deleteModal = useRef();
@@ -112,9 +112,9 @@ const ListingCar = ({car,cars, setCars, }) => {
     if (deleted) {return null};
 
     return (
-        <div className='p-5 flex flex-col gap-3 justify-between border bg-[#ffffff] border-gray-400 rounded-xl'>
+        <div className={`p-5 ${myCars.length === 1 && 'lg:w-[900px]'}  flex flex-col gap-3 justify-between border bg-[#ffffff] border-gray-400 rounded-xl`}>
             <figure>
-                <img src={myCar?.imageUrl} alt={myCar?.carName}  className='w-full mx-auto rounded h-[400px]'/>
+                <img src={myCar?.imageUrl} alt={myCar?.carName}  className={ 'w-full h-[300px] sm:h-[400px] rounded-xl  object-cover'}/>
             </figure>
             <div className="grid gap-4 grid-cols-2 justify-between items-center">
                 <h2 className="text-2xl font-bold col-span-2 md:col-span-1">

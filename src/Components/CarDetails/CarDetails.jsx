@@ -13,7 +13,7 @@ const CarDetails = () => {
     const filterCar = cars.find(car => (car._id) === (id));
     const {user} = use(AuthContext);
 
-        const confirmModalRef = useRef();
+    const confirmModalRef = useRef();
 
 
 
@@ -29,7 +29,12 @@ const CarDetails = () => {
 
     const handleCancelBook = () => {
         confirmModalRef.current.close()
-    }
+    };
+
+    
+
+        
+
     
     const handleUpdate = (e, _id) =>{
         e.preventDefault();
@@ -37,7 +42,6 @@ const CarDetails = () => {
         
 
         const bookedCar = cars.filter(car => car._id === id );
-
         const bookedInfo = bookedCar.find(item=> item?.availability);
 
 
@@ -45,7 +49,14 @@ const CarDetails = () => {
         const totalDays = e.target.totalDays.value;
         const totalPrice = Number(bookedInfo?.rentPrice) * Number(totalDays) ; 
 
-        const date = new Date().toISOString().split('T')[0];
+        const today = new Date().toISOString().split('T')[0];
+    
+        const date = new Date(today);
+
+        const nextDateObj = new Date(date);
+        nextDateObj.setDate(date.getDate() + Number(totalDays));
+        const nextDate = nextDateObj.toISOString().split("T")[0];
+        
 
 
 
@@ -72,7 +83,7 @@ const CarDetails = () => {
                 data;
                 setCars(updatedCars);
                 changes();
-                toast.success(`You have booked Car for ${totalDays}`);
+                toast.success(`You have booked Car for ${totalDays} days`);
             
             })
 
@@ -81,15 +92,17 @@ const CarDetails = () => {
         const myCarBook = {
                 carId : bookedInfo?._id ,
                 name: user?.displayName,
+                carName : bookedInfo?.carName,
                 email: user?.email,
-                image : user?.photoURL,
+                image : bookedInfo?.imageUrl,
                 carStatus : bookedInfo?.availability,
-                category : bookedInfo.category,
+                category : bookedInfo?.category,
                 rentPrice : bookedInfo?.rentPrice,
                 location : bookedInfo?.location,
                 totalDays : totalDays ,
                 totalPrice : totalPrice ,
-                today : date 
+                today : today ,
+                arriveDate : nextDate ,
             }
 
             
@@ -180,7 +193,7 @@ const CarDetails = () => {
                                     
                                         <fieldset className=''>
                                             <label className="label w-full text-black my-3">Total Days</label>
-                                            <input required name='totalDays' type="number" className="input text-black w-full" placeholder="Total Days" />
+                                            <input defaultValue={1} name='totalDays' type="number" className="input text-black w-full" placeholder="Total Days" />
                                         </fieldset>
                                         {/* <fieldset className='sm:w-1/2'>
                                             <label className="label text-black">Location</label>
