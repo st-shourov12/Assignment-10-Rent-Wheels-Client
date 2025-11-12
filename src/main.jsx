@@ -8,13 +8,14 @@ import AuthProvider from './Context/AuthProvider.jsx';
 import Home from './Components/Home/Home.jsx';
 import Register from './Components/Register/Register.jsx';
 import Login from './Components/Register/Login.jsx';
-import BrowseCar from './Components/BrowseCar/BrowseCar.jsx';
+
 import MyListing from './Components/MyListing/MyListing.jsx';
 import MyBookings from './Components/MyBookings/MyBookings.jsx';
 import AddCar from './Components/AddCar/AddCar.jsx';
 import CarDetails from './Components/CarDetails/CarDetails.jsx';
 import PrivateRoutes from './Components/Route/PrivateRoute.jsx';
 import Error from './Error/Error.jsx';
+import Browse from './Components/BrowseCar/Browse.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'cars',
-        Component : BrowseCar
+        Component : Browse
       },
       {
         path: 'cars/:id',

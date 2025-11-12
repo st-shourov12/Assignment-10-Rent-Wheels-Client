@@ -100,7 +100,7 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log('Delete confirmed:', data);
+            data
         })
 
         
@@ -110,10 +110,10 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
                     })
                     .then(res => res.json())
                     .then(data => {
-                        ('Delete confirmed:', data);
+                        data
                     })
                     .catch(error => {
-                        toast.error('Delete error:', error);
+                        error
                     });
         
     }

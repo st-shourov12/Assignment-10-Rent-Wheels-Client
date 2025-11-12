@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import useCars from '../UseHook/UseCars';
 import Spinner from '../Spinner/Spinner';
+import { toast } from 'react-toastify';
 // import { useRef } from 'react';
 
 const AddCar = () => {
@@ -56,8 +57,9 @@ const AddCar = () => {
         })
         .then(res=> {res.json()})
         .then(data =>{
-            console.log(data);
+           data;
         });
+        toast.success(`You added ${car_name} successfully`)
   
         
     e.target.reset()

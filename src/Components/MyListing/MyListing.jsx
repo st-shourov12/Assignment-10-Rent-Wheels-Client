@@ -44,18 +44,20 @@ const MyListing = () => {
                 {
                     myCars.length === 0 ? 
                     <NotListing />:
-
+                    <Suspense fallback={<Spinner />}>
                    <div className={`grid ${myCars.length === 1 && 'lg:grid-cols-1 xl:grid-cols-1'} ${myCars.length % 3 === 0 && 'lg:grid-cols-2 xl:grid-cols-3'} ${myCars.length === 4 && 'lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4' } ${myCars.length === 5 && 'lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} ${myCars.length > 6 && 'lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} ${myCars.length % 2 === 0 && 'lg:grid-cols-2 xl:grid-cols-2'}  grid-cols-1 gap-5 my-5`}>
+                    
                         {
                             myCars.map(car=>(
-                                <Suspense fallback={<Spinner />}>
+                                
                                     <ListingCar key={car._id} myCarPromise={myCarPromise} car={car} myCars={myCars} cars={cars} setCars={setCars}></ListingCar>
-                                </Suspense>
+                               
                             
                                 
                             ))
                         }
                     </div>
+                     </Suspense>
 
                 }
 
