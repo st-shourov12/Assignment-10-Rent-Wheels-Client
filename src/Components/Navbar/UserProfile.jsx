@@ -1,14 +1,15 @@
-import React, { use, useState } from 'react';
+import React, { Suspense, use, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import MyProfile from './My Profile/MyProfile';
 
 const UserProfile = () => {
     const { user } = use(AuthContext);
     const [isToggle, setIsToggle] = useState(false);
+    const updateUserProfilePromise = fetch(`http://localhost:4000/users`).then(res=>res.json())
 
     const handleToggle = () => setIsToggle(!isToggle);
 
-    const photo = user?.photoURL || "https://via.placeholder.com/40";
+    const photo = user?.photoURL
 
     return (
         <div className="relative">
@@ -17,8 +18,11 @@ const UserProfile = () => {
 
             
             {isToggle && (
-                <div className="absolute right-0 mt-3 z-9999 rounded-2xl w-auto p-3" onClick={(e) => e.stopPropagation()} >
-                    <MyProfile handleToggle={handleToggle} keepOpen={() => setIsToggle(true)} />
+                <div className="absolute right-0 mt-3 z-9999 rounded-2xl w-[300px] p-3" onClick={(e) => e.stopPropagation()} >
+                    <Suspense fallback='load'>
+                        <MyProfile updateUserProfilePromise={updateUserProfilePromise} handleToggle={handleToggle} keepOpen={() => setIsToggle(true)} />
+                    </Suspense>
+                    
                 </div>
             )}
         </div>

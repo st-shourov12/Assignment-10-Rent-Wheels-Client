@@ -3,7 +3,7 @@ import './Spinner.css'
 
 const Spinner = () => {
     return (
-        <div class="w-full mx-auto min-h-[60vh] flex justify-center items-center">
+        <div className="w-full mx-auto min-h-[60vh] flex justify-center items-center">
             <div className="loader">
     
             </div>
