@@ -4,18 +4,21 @@ import useCars from '../UseHook/UseCars';
 import { AuthContext } from '../../Context/AuthContext';
 import ListingCar from './ListingCar';
 import NotListing from './NotListing';
+import Spinner from '../Spinner/Spinner';
 
 
 const MyListing = () => {
 
-    const {cars, setCars} = useCars();
+    const {cars, setCars, loading} = useCars();
     const {user} = use(AuthContext);
 
     const myCars = cars.filter(car=> car?.providerEmail === user?.email);
     const availableCars = myCars.filter(car=> car?.availability === "Available");
     const bookCars = myCars.filter(car=> car?.availability === "Booked");
 
-
+    if (loading) {
+        return <Spinner />
+    }
 
 
     return (

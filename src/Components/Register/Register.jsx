@@ -7,22 +7,24 @@ import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
 import { FaEyeSlash } from 'react-icons/fa6';
 import { FaEye } from 'react-icons/fa6';
-// import Loading from '../Loading/Loading';
-// import usePlant from '../usePlant';
+import Spinner from '../Spinner/Spinner';
+import useCars from '../UseHook/UseCars';
+
 
 const Register = () => {
     const {creatUser, setUser,user, signInWithGoogle} = use(AuthContext);
 
-    // const {loading } = usePlant();
+    const {loading } = useCars();
     const [passError , setPassError] = useState('');
     const [showPassword , setShowPassword] = useState(false);
 
     const location = useLocation();
     const navigate = useNavigate();
 
-    // if (loading) {
-    //     return <Loading />
-    // }
+    if (loading) {
+        return <Spinner />
+    }
+
 
     if(user){
         return (navigate(location?.state || '/'))
@@ -69,6 +71,23 @@ const Register = () => {
                     
                     
                 });
+
+                const newUser = {
+                name: name,
+                email: email,
+                image : photoURL,
+                
+            }
+
+            fetch(`http://localhost:4000/users`,{
+                method: 'POST',
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            })
+            .then(res=> res.json())
+            .then(data=>console.log(data))
                 
             navigate(location?.state || '/');
             // setUser(res.user);
@@ -89,7 +108,7 @@ const Register = () => {
         .then( (res) =>{
             console.log(res);
             const newUser = {
-                name: res.user.displaName,
+                name: res.user.displayName,
                 email: res.user.email,
                 image : res.user.photoURL
             }
@@ -122,11 +141,11 @@ const Register = () => {
                             <form onSubmit={handleRegister}>
                                 <fieldset className="fieldset flex flex-col gap-2">
                                     <label className="label text-white">Name</label>
-                                    <input type="text" name='name' className="input w-full" placeholder="Name" required/>
+                                    <input type="text" name='name' className="input w-full text-black" placeholder="Name" required/>
                                     <label className="label text-white">Email</label>
-                                    <input type="email" name='email' className="input w-full" placeholder="Email" required />
+                                    <input type="email" name='email' className="input w-full text-black" placeholder="Email" required />
                                     <label className="label text-white">PhotoURL</label>
-                                    <input type="text" name='photoURL' className="input w-full" placeholder="PhotoURL" required/>
+                                    <input type="text" name='photoURL' className="input w-full text-black" placeholder="PhotoURL" required/>
                                     <label className="label text-white">Password</label>
                                     
                                     <div className="relative">

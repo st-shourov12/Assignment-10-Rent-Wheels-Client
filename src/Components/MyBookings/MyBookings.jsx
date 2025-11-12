@@ -3,6 +3,7 @@ import React, { use } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import {Suspense} from 'react';
 import BookingCars from './BookingCars'
+import Spinner from '../Spinner/Spinner';
 
 
 const MyBookings = () => {
@@ -22,7 +23,7 @@ const MyBookings = () => {
     return (
         <div className="bg-[#F5F7FA] ">
         
-            <Suspense>
+            <Suspense fallback={<Spinner></Spinner>}>
 
 
                 <BookingCars myCarPromise={myCarPromise} user={user}></BookingCars>

@@ -1,6 +1,6 @@
 import React, { use, useRef, useState } from 'react';
 import { FaListAlt } from 'react-icons/fa';
-import { FaCalendarDays, FaDollarSign, FaLocationDot } from 'react-icons/fa6';
+import { FaCalendarCheck, FaCalendarDays, FaDollarSign, FaLocationDot } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
 import useCars from '../UseHook/UseCars';
 import NotBooking from './NotBooking';
@@ -163,7 +163,7 @@ const BookingCars = ({myCarPromise, user}) => {
     return (
 
 
-        <div className='max-w-full  p-5 sm:p-10 flex flex-col justify-baseline gap-5 items-center mx-auto'>
+        <div className='max-w-full  p-5 sm:p-10 flex flex-col justify-between gap-5 items-center mx-auto'>
 
             <h2 className="text-4xl flex gap-2 items-center">
                 <FaListAlt className='text-blue-700' /> My Bookings
@@ -204,8 +204,11 @@ const BookingCars = ({myCarPromise, user}) => {
                         <p className='flex gap-2 items-center'>
                             <FaCalendarDays /> {car?.today} to {car?.arriveDate}
                         </p>
+                        <p className='flex gap-2 items-center'>
+                            <FaCalendarCheck /> Booking for {car?.totalDays} days
+                        </p>
                         <p className='flex gap-2 text-xl items-center text-green-700 font-semibold'>
-                            <FaDollarSign /> {car?.totalPrice} <span className="font-normal text-sm text-gray-700">({car?.rentPrice})</span>
+                            <FaDollarSign /> {car?.totalPrice} <span className="font-normal text-sm text-gray-700">(${car?.rentPrice}/day)</span>
                         </p>
 
                         <div className="flex gap-3 justify-between">

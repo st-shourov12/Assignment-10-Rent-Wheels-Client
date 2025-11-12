@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import LatestCars from '../Home/LatestCars';
+import Spinner from '../Spinner/Spinner';
 
 const BrowseCar = () => {
 
@@ -7,10 +8,14 @@ const BrowseCar = () => {
     .then(res=> res.json())
     return (
         <div className='[bg-[#F5F7FA] '>
-            <Suspense fallback='Loading.....'>
+            
+
+            <Suspense fallback={<Spinner></Spinner>}>
 
                 <LatestCars latestCarsPromise={latestCarsPromise}></LatestCars>
             </Suspense>
+
+            
         </div>
     );
 };

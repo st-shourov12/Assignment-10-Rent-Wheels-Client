@@ -8,7 +8,7 @@ const Error = () => {
             <figure className='flex p-5 sm:p-10 lg:p-20 justify-center'>
                 <img src={rrro} alt="error" />
             </figure>
-            <Link className='px-5 py-4 bg-[#06B6D4] rounded-lg' to={'/'}>Go Home</Link>
+            <Link className='sm:px-5 sm:py-4 px-3 py-2 bg-[#06B6D4] rounded-lg' to={'/'}>Go Home</Link>
             
             
         </div>

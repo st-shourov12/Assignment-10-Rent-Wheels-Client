@@ -91,13 +91,13 @@ const ListingCar = ({car,cars, setCars, myCars}) => {
         deleteModal.current.close();
         toast.success('Car deleted successfully!');
 
-        // fetch(`http://localhost:4000/cars/${id}`, {
-        //     method: 'DELETE'
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log('Delete confirmed:', data);
-        // })
+        fetch(`http://localhost:4000/cars/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('Delete confirmed:', data);
+        })
     }
 
     const handleCancelDelete = () =>{

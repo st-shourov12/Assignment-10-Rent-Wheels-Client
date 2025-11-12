@@ -4,12 +4,13 @@ import useCars from '../UseHook/UseCars';
 import { toast } from 'react-toastify';
 import Error2 from '../../Error/Error2';
 import { AuthContext } from '../../Context/AuthContext';
+import Spinner from '../Spinner/Spinner';
 
 
 const CarDetails = () => {
 
     const { id }= useParams();
-    const {cars ,setCars, changes} = useCars() ;
+    const {cars,loading ,setCars, changes} = useCars() ;
     const filterCar = cars.find(car => (car._id) === (id));
     const {user} = use(AuthContext);
 
@@ -92,6 +93,7 @@ const CarDetails = () => {
         const myCarBook = {
                 carId : bookedInfo?._id ,
                 name: user?.displayName,
+                providerEmail: bookedInfo?.providerEmail,
                 carName : bookedInfo?.carName,
                 email: user?.email,
                 image : bookedInfo?.imageUrl,
@@ -122,10 +124,13 @@ const CarDetails = () => {
     }
   
 
+   
+   if (loading) {
+     return <Spinner />
+    }
     if(!filterCar){
         return <Error2></Error2>
     }
-   
 
     return (
     <div className="lg:max-w-[80%] mx-auto p-6 sm:p-10">

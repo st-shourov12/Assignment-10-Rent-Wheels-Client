@@ -5,12 +5,12 @@ import { Link } from 'react-router';
 const Car = ({car}) => {
     const {carName, category,rentPrice,providerName,availability, imageUrl, _id} = car;
     return (
-        <div className="p-5 flex flex-col gap-2.5 w-96 shadow-sm justify-self-center">
+        <div className="p-5 flex flex-col gap-4 max-w-[400px] rounded-xl bg-white justify-self-center">
             <figure className="relative">
                 <img
                 src={imageUrl}
                 alt={carName}
-                className="rounded-xl w-[340px] h-[200px] mx-auto" />
+                className="rounded-xl min-w-[340px] h-[200px] mx-auto" />
                 <span className={`px-3 py-2 absolute top-2 right-2 text-white ${availability === "Booked" ? 'bg-red-600' : 'bg-green-600'} rounded-xl`}>{availability}</span>
 
             </figure>

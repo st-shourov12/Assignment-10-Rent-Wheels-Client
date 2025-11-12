@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import LatestCars from './LatestCars';
+import Spinner from '../Spinner/Spinner';
 
 const Home = () => {
     const latestCarsPromise = fetch(`http://localhost:4000/latestCars`)
@@ -7,8 +8,8 @@ const Home = () => {
 
 
     return (
-        <div>
-            <Suspense fallback='Loading.....'>
+        <div className=''>
+            <Suspense fallback={<Spinner></Spinner>}>
 
                 <LatestCars latestCarsPromise={latestCarsPromise}></LatestCars>
             </Suspense>

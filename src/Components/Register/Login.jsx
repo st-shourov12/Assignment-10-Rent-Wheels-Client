@@ -4,8 +4,10 @@ import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
 import { FaEyeSlash } from 'react-icons/fa6';
 import { FaEye } from 'react-icons/fa6';
-// import usePlant from '../usePlant';
-// import Loading from '../Loading/Loading';
+
+import Spinner from '../Spinner/Spinner';
+import useCars from '../UseHook/UseCars';
+
 
 
 
@@ -13,14 +15,14 @@ const Login = () => {
     const {signInUser,setUser,user, signInWithGoogle} = use(AuthContext);
 
     const [showPassword , setShowPassword] = useState(false);
-    // const {loading } = usePlant();
+    const {loading } = useCars();
     const location = useLocation();
     const navigate = useNavigate();
     
 
-    // if (loading) {
-    //     return <Loading />
-    // }
+    if (loading) {
+        return <Spinner />
+    }
 
     if(user){
         return (navigate(location?.state || '/'))
@@ -47,13 +49,30 @@ const Login = () => {
 
     const handleGoogleSignIn = () =>{
         signInWithGoogle()
-        .then( () =>{
-            
-            navigate(location?.state || '/')
-        })
-        .catch(error =>{
-            toast.error(error.message)
-        })
+                .then( (res) =>{
+                    console.log(res);
+                    const newUser = {
+                        name: res.user.displayName,
+                        email: res.user.email,
+                        image : res.user.photoURL
+                    }
+        
+                    fetch(`http://localhost:4000/users`,{
+                        method: 'POST',
+                        headers: {
+                            'content-type' : 'application/json'
+                        },
+                        body: JSON.stringify(newUser)
+                    })
+                    .then(res=> res.json())
+                    .then(data=>console.log(data))
+                    
+                    navigate(location?.state || '/')
+                })
+                .catch(error =>{
+                    toast.error(error.message)
+                    
+                })
     }
 
     return (
@@ -66,7 +85,7 @@ const Login = () => {
                         <form onSubmit={handleLogin}>
                             <fieldset className="fieldset">
                                 <label className="label text-white">Email</label>
-                                <input type="email" name='email' className="input w-full" placeholder="Email" />
+                                <input type="email" name='email' className="input w-full text-black" placeholder="Email" />
                                 <label className="label text-white">Password</label>
                                 <div className="relative">
                                     <input type={showPassword ? "text" : "password"} name='password' className="input w-full text-[#16213e] relative" placeholder="Password" required/>

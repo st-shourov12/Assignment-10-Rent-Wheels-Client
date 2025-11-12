@@ -1,10 +1,17 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
+import useCars from '../UseHook/UseCars';
+import Spinner from '../Spinner/Spinner';
 // import { useRef } from 'react';
 
 const AddCar = () => {
 
     const {user} = use(AuthContext);
+    const {loading} =useCars();
+
+    if (loading) {
+       return <Spinner />
+    }
     // const confirmModalRef = useRef();
 
 
@@ -56,7 +63,7 @@ const AddCar = () => {
     e.target.reset()
     }
     return (
-        <div className='max-w-[60%] bg-[#16213E] text-white mx-auto p-10 border border-gray-600 mt-10 rounded-2xl'>
+        <div className='max-w-[90%] lg:max-w-[70%] bg-[#16213E] text-white mx-auto p-5 sm:p-10 border border-gray-600 my-10 xl:my-20 rounded-2xl'>
             <h2 className='text-center text-4xl'>Add a Car</h2>
 
             <form onSubmit={handleAddCar} className='p-5 flex flex-col gap-2'>
@@ -113,7 +120,7 @@ const AddCar = () => {
                 <textarea required name='describe' className="textarea text-black w-full h-20" placeholder="Describe your car"></textarea>
 
                 <div className="flex justify-center">
-                    <button className='px-5 bg-green-600 text-white py-3 rounded-xl shadow-0'>Add Car</button>
+                    <button className='px-5 bg-[#06B6D4] text-[#0F172A]  py-3 rounded-xl shadow-0'>Add Car</button>
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
                     {/* <button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>open modal</button> */}
                     {/* <dialog ref={confirmModalRef} className="modal modal-bottom sm:modal-middle">
