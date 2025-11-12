@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { Suspense, use } from 'react';
 import { FaCar } from 'react-icons/fa6';
 import useCars from '../UseHook/UseCars';
 import { AuthContext } from '../../Context/AuthContext';
@@ -15,6 +15,7 @@ const MyListing = () => {
     const myCars = cars.filter(car=> car?.providerEmail === user?.email);
     const availableCars = myCars.filter(car=> car?.availability === "Available");
     const bookCars = myCars.filter(car=> car?.availability === "Booked");
+    const myCarPromise = fetch(`http://localhost:4000/myCars`).then(res=> res.json());
 
     if (loading) {
         return <Spinner />
@@ -47,7 +48,11 @@ const MyListing = () => {
                    <div className={`grid ${myCars.length === 1 && 'lg:grid-cols-1 xl:grid-cols-1'} ${myCars.length % 3 === 0 && 'lg:grid-cols-2 xl:grid-cols-3'} ${myCars.length === 4 && 'lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4' } ${myCars.length === 5 && 'lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} ${myCars.length > 6 && 'lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} ${myCars.length % 2 === 0 && 'lg:grid-cols-2 xl:grid-cols-2'}  grid-cols-1 gap-5 my-5`}>
                         {
                             myCars.map(car=>(
-                                <ListingCar key={car._id} car={car} myCars={myCars} cars={cars} setCars={setCars}></ListingCar>
+                                <Suspense fallback={<Spinner />}>
+                                    <ListingCar key={car._id} myCarPromise={myCarPromise} car={car} myCars={myCars} cars={cars} setCars={setCars}></ListingCar>
+                                </Suspense>
+                            
+                                
                             ))
                         }
                     </div>

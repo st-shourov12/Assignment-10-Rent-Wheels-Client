@@ -4,7 +4,7 @@ import useCars from '../UseHook/UseCars';
 
 import { toast } from 'react-toastify';
 
-const ListingCar = ({car,cars, setCars, myCars}) => {
+const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
 
     const confirmModalRef = useRef();
     const deleteModal = useRef();
@@ -14,6 +14,10 @@ const ListingCar = ({car,cars, setCars, myCars}) => {
     const [myCar, setMyCar] = useState(car);
 
     const [deleted, setDeleted] = useState(false);
+
+    const bookingCars = use(myCarPromise);
+
+    const bookedcar = bookingCars.filter(bc => bc.carId === car._id);
 
 
     
@@ -81,9 +85,9 @@ const ListingCar = ({car,cars, setCars, myCars}) => {
         
     };
 
-    const handleDeleteCar = (id) => {
+    const handleDeleteCar = (ccc) => {
 
-        const updatedCars = cars.filter(car => car._id !== id);
+        const updatedCars = cars.filter(car => car._id !== ccc?._id);
         setCars(updatedCars);
         setDeleted(true);
 
@@ -91,13 +95,27 @@ const ListingCar = ({car,cars, setCars, myCars}) => {
         deleteModal.current.close();
         toast.success('Car deleted successfully!');
 
-        fetch(`http://localhost:4000/cars/${id}`, {
+        fetch(`http://localhost:4000/cars/${ccc?._id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
         .then(data => {
             console.log('Delete confirmed:', data);
         })
+
+        
+        const bCar = bookedcar[0]
+        fetch(`http://localhost:4000/myCars/${bCar?._id}`, {
+                        method: 'DELETE'
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        ('Delete confirmed:', data);
+                    })
+                    .catch(error => {
+                        toast.error('Delete error:', error);
+                    });
+        
     }
 
     const handleCancelDelete = () =>{
@@ -212,7 +230,7 @@ const ListingCar = ({car,cars, setCars, myCars}) => {
                             
                             <div className="modal-action flex justify-between"> 
                                 
-                                <button onClick={()=>handleDeleteCar(myCar?._id)} className="btn my-3 bg-[#dc2626] text-white py-4 rounded-xl w-1/2">Yes</button>
+                                <button onClick={()=>handleDeleteCar(myCar)} className="btn my-3 bg-[#dc2626] text-white py-4 rounded-xl w-1/2">Yes</button>
                                 <button onClick={()=>handleCancelDelete()} className="btn my-3 bg-green-600 text-white py-4 rounded-xl w-1/2">No</button>
                             
                             </div>

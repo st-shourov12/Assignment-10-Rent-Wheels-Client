@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { use,  useState } from 'react';
 import { AuthContext } from '../../../Context/AuthContext';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
@@ -9,18 +9,13 @@ const MyProfile = ({handleToggle, updateUserProfilePromise}) => {
     const auth = getAuth();
     const photo = auth.currentUser.photoURL;
 
-    // const [updateUserProfile, setUpdateUserProfile] = useState([]);
+
     const updateUserProfile = use(updateUserProfilePromise);
     
     const myProfile = updateUserProfile.filter(p=> p?.email === user?.email);
     
-    console.log(myProfile);
 
-    // useEffect(() => {
-    // updateUserProfilePromise
-    //     .then(data => setUpdateUserProfile(data))
-    //     .catch(err => console.error(err));
-    // }, [updateUserProfilePromise]);
+
 
     const handleUpBtn = () => {
         setIsUpdate(!isUpdate)
@@ -86,6 +81,8 @@ const MyProfile = ({handleToggle, updateUserProfilePromise}) => {
     .catch((error) => {
         toast.error("Profile update failed: " + error.message);
     });
+
+    setIsUpdate(false)
 
     event.target.reset();
 }
