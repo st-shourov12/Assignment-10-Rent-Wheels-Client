@@ -57,7 +57,7 @@ const BookingCars = ({myCarPromise, user}) => {
         const nextDate = nextDateObj.toISOString().split("T")[0];
 
 
-        fetch(`http://localhost:4000/myCars/${selectedCar?._id}`, {
+        fetch(`https://rent-wheels-server-sigma.vercel.app/myCars/${selectedCar?._id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ const BookingCars = ({myCarPromise, user}) => {
         
 
 
-        fetch(`http://localhost:4000/myCars/${selectedCar?._id}`, {
+        fetch(`https://rent-wheels-server-sigma.vercel.app/myCars/${selectedCar?._id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -130,7 +130,7 @@ const BookingCars = ({myCarPromise, user}) => {
         const carIdToUpdate = selectedCar?.carId || selectedCar?._id;
         
         if (carIdToUpdate) {
-            fetch(`http://localhost:4000/cars/${carIdToUpdate}`, {
+            fetch(`https://rent-wheels-server-sigma.vercel.app/cars/${carIdToUpdate}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'

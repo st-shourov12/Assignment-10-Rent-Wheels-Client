@@ -57,7 +57,7 @@ const MyProfile = ({handleToggle, updateUserProfilePromise}) => {
         const userProfile = myProfile[0];
         
         if (userProfile && userProfile._id) {
-            fetch(`http://localhost:4000/users/${userProfile._id}`, {
+            fetch(`https://rent-wheels-server-sigma.vercel.app/users/${userProfile._id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

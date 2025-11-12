@@ -79,7 +79,7 @@ const Register = () => {
                 
             }
 
-            fetch(`http://localhost:4000/users`,{
+            fetch(`https://rent-wheels-server-sigma.vercel.app/users`,{
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'
@@ -113,7 +113,7 @@ const Register = () => {
                 image : res.user.photoURL
             }
 
-            fetch(`http://localhost:4000/users`,{
+            fetch(`https://rent-wheels-server-sigma.vercel.app/users`,{
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'

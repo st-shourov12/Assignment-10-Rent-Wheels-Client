@@ -5,7 +5,7 @@ import MyProfile from './My Profile/MyProfile';
 const UserProfile = () => {
     const { user } = use(AuthContext);
     const [isToggle, setIsToggle] = useState(false);
-    const updateUserProfilePromise = fetch(`http://localhost:4000/users`).then(res=>res.json())
+    const updateUserProfilePromise = fetch(`https://rent-wheels-server-sigma.vercel.app/users`).then(res=>res.json())
 
     const handleToggle = () => setIsToggle(!isToggle);
 

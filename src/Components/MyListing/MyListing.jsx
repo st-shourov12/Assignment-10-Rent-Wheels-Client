@@ -15,7 +15,7 @@ const MyListing = () => {
     const myCars = cars.filter(car=> car?.providerEmail === user?.email);
     const availableCars = myCars.filter(car=> car?.availability === "Available");
     const bookCars = myCars.filter(car=> car?.availability === "Booked");
-    const myCarPromise = fetch(`http://localhost:4000/myCars`).then(res=> res.json());
+    const myCarPromise = fetch(`https://rent-wheels-server-sigma.vercel.app/myCars`).then(res=> res.json());
 
     if (loading) {
         return <Spinner />

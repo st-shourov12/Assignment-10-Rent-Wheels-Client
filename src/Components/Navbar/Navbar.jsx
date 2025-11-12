@@ -27,9 +27,7 @@ const Navbar = () => {
                         <li>
                             <NavLink to={'/cars'}>Browse Car</NavLink>
                         </li>
-                        {
-                            user && 
-                            <>
+                        
 
                                 <li>
                                     <NavLink to={'addCar'}>Add Car</NavLink>
@@ -41,8 +39,8 @@ const Navbar = () => {
                                     <NavLink to={'bookings'}>My Bookings</NavLink>
                                 </li>
                                             
-                            </>
-                        }
+                        
+                        
                     </ul>
                 </div>
                 <Link to={'/'} className="text-xl font-semibold"><span className='text-red-500'>Rent</span>Wheels</Link>
@@ -55,9 +53,7 @@ const Navbar = () => {
                     <li>
                         <NavLink to={'/cars'}>Browse Car</NavLink>
                     </li>
-                    {
-                        user ?
-                        <>
+                    
 
                             <li>
                                 <NavLink to={'addCar'}>Add Car</NavLink>
@@ -69,8 +65,8 @@ const Navbar = () => {
                                 <NavLink to={'bookings'}>My Bookings</NavLink>
                             </li>
                                         
-                        </>: <></>
-                    }
+                        
+                    
                 </ul>
             </div>
             <div className="navbar-end">

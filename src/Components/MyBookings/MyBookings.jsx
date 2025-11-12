@@ -8,7 +8,7 @@ import Spinner from '../Spinner/Spinner';
 
 const MyBookings = () => {
 
-    const myCarPromise = fetch(`http://localhost:4000/myCars`).then(res=> res.json());
+    const myCarPromise = fetch(`https://rent-wheels-server-sigma.vercel.app/myCars`).then(res=> res.json());
     
 
     const {user} = use(AuthContext);

@@ -48,7 +48,7 @@ const AddCar = () => {
 
         };
 
-        fetch(`http://localhost:4000/cars`,{
+        fetch(`https://rent-wheels-server-sigma.vercel.app/cars`,{
                 method: 'POST',
                 headers: {
                     'Content-Type' : 'application/json'

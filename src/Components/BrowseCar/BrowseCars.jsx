@@ -76,7 +76,7 @@ const BrowseCars = () => {
                         }
 
                         <div className='flex justify-center items-center py-5 sm:py-10'>
-                                    <Link className='sm:px-5 sm:py-4 px-3 py-2 bg-[#06B6D4] rounded-lg' to={'/'}>Go Home</Link>
+                                    <Link className='sm:px-5 sm:py-4 px-3 py-2 bg-[#DC2626] text-white rounded-lg' to={'/'}>Go Home</Link>
                         </div>
                     </div>
 

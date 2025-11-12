@@ -1,5 +1,5 @@
 import React, { use, useRef } from 'react';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import useCars from '../UseHook/UseCars';
 import { toast } from 'react-toastify';
 import Error2 from '../../Error/Error2';
@@ -66,7 +66,7 @@ const CarDetails = () => {
         
 
 
-        fetch(`http://localhost:4000/cars/${_id}`,{
+        fetch(`https://rent-wheels-server-sigma.vercel.app/cars/${_id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type' : 'application/json'
@@ -109,7 +109,7 @@ const CarDetails = () => {
 
             
 
-            fetch(`http://localhost:4000/myCars`,{
+            fetch(`https://rent-wheels-server-sigma.vercel.app/myCars`,{
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'
@@ -185,42 +185,44 @@ const CarDetails = () => {
                         </button>
 
 
-                    <dialog ref={confirmModalRef} className="modal modal-bottom sm:modal-middle">
-                        <div className="modal-box">
-                            <h3 className="font-bold text-xl text-center text-black">Book Now ?</h3>
-                            
-                            {/* <div className="modal-action">  */}
-                                <form onSubmit={(e)=>handleUpdate(e, filterCar?._id)}  className='p-5 flex flex-col gap-4'>
-
-                                    <h3 className="text-xl">{filterCar?.carName}</h3>
-
-
-                                    
-                                        <fieldset className=''>
-                                            <label className="label w-full text-black my-3">Total Days</label>
-                                            <input defaultValue={1} name='totalDays' type="number" className="input text-black w-full" placeholder="Total Days" />
-                                        </fieldset>
-                                        {/* <fieldset className='sm:w-1/2'>
-                                            <label className="label text-black">Location</label>
-                                            <input required name='location' type="text" className="input text-black w-full" placeholder="Location" />
-
-                                        </fieldset> */}
-                                    
-                                    <div className="flex justify-between gap-3">
-                                        <button type='submit' className="w-full py-3 text-white rounded-lg px-4 bg-blue-600 hover:bg-blue-700">Book</button>
-                                        <button type='button' onClick={()=>handleCancelBook()} className="bg-[#DC2626] hover:bg-red-800 rounded-lg text-white py-3 w-full">Cancel</button>
-
-                                    </div>
-
-
-
-                                </form>
-                            
+                        <dialog ref={confirmModalRef} className="modal modal-bottom sm:modal-middle">
+                            <div className="modal-box">
+                                <h3 className="font-bold text-xl text-center text-black">Book Now ?</h3>
                                 
-                            
-                            {/* </div> */}
-                        </div>
-                    </dialog>
+                                {/* <div className="modal-action">  */}
+                                    <form onSubmit={(e)=>handleUpdate(e, filterCar?._id)}  className='p-5 flex flex-col gap-4'>
+
+                                        <h3 className="text-xl">{filterCar?.carName}</h3>
+
+
+                                        
+                                            <fieldset className=''>
+                                                <label className="label w-full text-black my-3">Total Days</label>
+                                                <input defaultValue={1} name='totalDays' type="number" className="input text-black w-full" placeholder="Total Days" />
+                                            </fieldset>
+                                            {/* <fieldset className='sm:w-1/2'>
+                                                <label className="label text-black">Location</label>
+                                                <input required name='location' type="text" className="input text-black w-full" placeholder="Location" />
+
+                                            </fieldset> */}
+                                        
+                                        <div className="flex justify-between gap-3">
+                                            <button type='submit' className="w-full py-3 text-white rounded-lg px-4 bg-blue-600 hover:bg-blue-700">Book</button>
+                                            <button type='button' onClick={()=>handleCancelBook()} className="bg-[#DC2626] hover:bg-red-800 rounded-lg text-white py-3 w-full">Cancel</button>
+
+                                        </div>
+
+
+
+                                    </form>
+                                
+                                    
+                                
+                                {/* </div> */}
+                            </div>
+                        </dialog>
+
+                        
 
                     </div>
                 {/* </div> */}
@@ -230,6 +232,10 @@ const CarDetails = () => {
             </div>
             
             
+        </div>
+        <div className='flex justify-center items-center'>
+
+            <Link className=' px-3 py-2 bg-[#DC2626] text-white rounded-lg' to={-1}>Go Back</Link>
         </div>
     </div>
 );

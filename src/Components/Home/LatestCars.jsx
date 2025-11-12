@@ -7,10 +7,11 @@ const LatestCars = ({latestCarsPromise}) => {
 
     const { loading} = useCars();
 
+
     if (loading) {
         return <Spinner />
     }
-    const cars = use(latestCarsPromise)
+    const cars = use(latestCarsPromise);
 
     console.log(cars);
     return (

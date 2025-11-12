@@ -67,7 +67,7 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
         toast.success(`You have Modified ${car_name}`);
         confirmModalRef.current.close();
         
-    fetch(`http://localhost:4000/cars/${_id}`,{
+    fetch(`https://rent-wheels-server-sigma.vercel.app/cars/${_id}`,{
                         method: 'PATCH',
                         headers: {
                             'Content-Type' : 'application/json'
@@ -95,7 +95,7 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
         deleteModal.current.close();
         toast.success('Car deleted successfully!');
 
-        fetch(`http://localhost:4000/cars/${ccc?._id}`, {
+        fetch(`https://rent-wheels-server-sigma.vercel.app/cars/${ccc?._id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -105,7 +105,7 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
 
         
         const bCar = bookedcar[0]
-        fetch(`http://localhost:4000/myCars/${bCar?._id}`, {
+        fetch(`https://rent-wheels-server-sigma.vercel.app/myCars/${bCar?._id}`, {
                         method: 'DELETE'
                     })
                     .then(res => res.json())
@@ -190,6 +190,17 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
                                         </fieldset>
                                     </div>
 
+                                    <div className="flex flex-col sm:flex-row gap-1">
+                                        <fieldset className='sm:w-1/2'>
+                                            <label className="label w-full text-gray-800">Provider Name</label>
+                                            <input defaultValue={myCar?.providerName} readOnly type="text" className="input text-gray-800 w-full" />
+                                        </fieldset>
+                                        <fieldset className='sm:w-1/2'>
+                                            <label className="label text-gray-800">Provider Email</label>
+                                            <input defaultValue={myCar?.providerEmail} readOnly type="text" className="input text-gray-800 w-full" placeholder="" />
+
+                                        </fieldset>
+                                    </div>
                                     <div className="flex flex-col sm:flex-row gap-1">
                                         <fieldset className='sm:w-1/2'>
                                             <label className="label w-full text-gray-800">Rent Price</label>
