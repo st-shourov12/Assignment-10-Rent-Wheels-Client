@@ -10,7 +10,7 @@ const Error2 = () => {
             <h2 className="text-2xl sm:text-4xl font-bold">
                 This Car ID Doesn't Exist
             </h2>
-            <Link className='sm:px-5 sm:py-4 px-4 py-3 bg-[#06B6D4] rounded-lg' to={'/'}>Go Home</Link>
+            <Link className='sm:px-5 sm:py-4 px-4 py-3 bg-[#06B6D4] rounded-lg' to={'/'}>Back to Home</Link>
             
             
         </div>

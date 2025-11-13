@@ -64,7 +64,7 @@ const HomeSearch = () => {
 
 
                 <label className='input w-8/10 sm:w-1/2 rounded-lg'>
-                        <input value={search} onChange={handleSearch} type="search"  placeholder='Search Car' />
+                        <input value={search} onChange={handleSearch} type="search"  placeholder='Search cars by name' />
                 </label>
 
                 {searchedCar.length === 0 ? 

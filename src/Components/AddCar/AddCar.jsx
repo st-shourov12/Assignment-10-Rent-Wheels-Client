@@ -122,7 +122,7 @@ const AddCar = () => {
                 <textarea required name='describe' className="textarea text-black w-full h-20" placeholder="Describe your car"></textarea>
 
                 <div className="flex justify-center">
-                    <button className='px-5 bg-[#06B6D4] text-[#0F172A]  py-3 rounded-xl shadow-0'>Add Car</button>
+                    <button className='px-4 bg-[#DC2626] text-white  py-3 rounded-xl shadow-0'>Add Car</button>
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
                     {/* <button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>open modal</button> */}
                     {/* <dialog ref={confirmModalRef} className="modal modal-bottom sm:modal-middle">

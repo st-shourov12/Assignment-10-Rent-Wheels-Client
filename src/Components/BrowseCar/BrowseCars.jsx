@@ -49,7 +49,7 @@ const BrowseCars = () => {
 
             <div className='flex justify-center my-5'>
                 <label className='input '>
-                        <input value={search} onChange={e => {setSearch(e.target.value) }} type="search"  placeholder='Search Car' />
+                        <input value={search} onChange={e => {setSearch(e.target.value) }} type="search"  placeholder='Search cars by name' />
                 </label>
                 
             </div>

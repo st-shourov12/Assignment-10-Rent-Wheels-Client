@@ -1,16 +1,43 @@
-# React + Vite
+# 🚗 RentWheels
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Site URL:
 
-Currently, two official plugins are available:
+🔗 Client-side Git Repo : [https://github.com/st-shourov12/Assignment-10-Rent-Wheels-Client]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 Server-side Git Repo : [https://github.com/st-shourov12/Assignment-10-Rent-Wheels-Server]
 
-## React Compiler
+🔗 Live Link Client-side : [https://rentwheelsassignment.netlify.app/]
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 Live Link Server-side : [https://rent-wheels-server-sigma.vercel.app/]
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧾 About RentWheels
+
+**RentWheels** is a full-stack MERN application that connects users with local car owners or rental providers.  
+Users can browse available cars, view details, and book rentals for specific dates.  
+Car providers can list vehicles, manage bookings, and update car availability in real-time.
+
+---
+
+## ✨ Key Features
+
+- 🚘 **Browse Cars Easily** — Users can explore all available cars with filtering and search options.
+- 💳 **Book Cars Instantly** — Choose your favorite car, select rental dates, and confirm bookings securely.
+- 🧑‍💼 **Provider Dashboard** — Car owners can list, edit, or remove cars and track their bookings.
+- 🔒 **Authentication System** — Firebase authentication for secure sign-up, login, and logout.
+- ⭐ **Top Rated Cars & Why Rent With Us** — Highlights best cars and reasons to choose RentWheels.
+- 🧾 **Dynamic Booking Management** — Users can update or cancel their bookings anytime.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, Tailwind CSS, DaisyUI, React Router, React Icons, Axios , React Toastify , Swiper , React Tooltip , Lottie React
+- **Backend:** Node.js, Express.js, MongoDB , Dotenv , Cors
+- **Authentication:** Firebase  
+- **Deployment:** Vercel (Server) / Netlify (Client)
+
+---
+
+

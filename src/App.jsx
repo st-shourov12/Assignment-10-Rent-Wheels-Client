@@ -14,10 +14,8 @@ function App() {
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>
-      {/* <Footer></Footer> */}
 
-
-      <ToastContainer position={'top-center'}></ToastContainer>
+      <ToastContainer position="top-center" style={{ marginTop: '50px' }} />
     </>
   )
 }

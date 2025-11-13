@@ -189,9 +189,3 @@ const Register = () => {
 
 export default Register;
 
-// Primary: #6C63FF (Soft Purple) - Modern, tech-savvy
-// Secondary: #2D3748 (Charcoal) - Professional
-// Accent: #48BB78 (Fresh Green) - Success states
-// Light: #F7FAFC (Off White)
-// Warning: #F6AD55 (Warm Orange)
-// Text: #1A202C

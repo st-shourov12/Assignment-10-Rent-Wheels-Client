@@ -1,10 +1,12 @@
-import React, { use, useRef } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import useCars from '../UseHook/UseCars';
 import { toast } from 'react-toastify';
 import Error2 from '../../Error/Error2';
 import { AuthContext } from '../../Context/AuthContext';
 import Spinner from '../Spinner/Spinner';
+import Lottie from 'lottie-react'; 
+import bookingSuccess from './Animations/Done.json';
 
 
 const CarDetails = () => {
@@ -13,6 +15,7 @@ const CarDetails = () => {
     const {cars,loading ,setCars, changes} = useCars() ;
     const filterCar = cars.find(car => (car._id) === (id));
     const {user} = use(AuthContext);
+    const [showAnimation, setShowAnimation] = useState(false);
 
     const confirmModalRef = useRef();
 
@@ -85,6 +88,12 @@ const CarDetails = () => {
                 setCars(updatedCars);
                 changes();
                 toast.success(`You have booked Car for ${totalDays} days`);
+                setShowAnimation(true);
+
+                        
+                setTimeout(() => {
+                    setShowAnimation(false);
+                }, 5000);
             
             })
 
@@ -133,7 +142,16 @@ const CarDetails = () => {
     }
 
     return (
-    <div className="lg:max-w-[80%] mx-auto p-6 sm:p-10">
+    <div className="lg:max-w-[80%] relative mx-auto p-6 sm:p-10">
+
+
+        {showAnimation && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 rounded-xl z-10">
+                <Lottie animationData={bookingSuccess} loop={false} className="w-48 h-48" />
+                <h2 className="text-black text-xl font-bold mt-2">Booking Confirmed!</h2>
+            </div>
+        )}
+
         <div className="bg-white flex flex-col lg:flex-row justify-between gap-5 rounded-lg p-6">
             <figure className="relative lg:w-1/2">
                 <img
