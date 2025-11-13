@@ -27,7 +27,7 @@ const BrowseCars = () => {
 
         setLoad(false);
         
-        }, 100); 
+        }, 0); 
 
         return () => clearTimeout(timer);
     }, [search,cars]);

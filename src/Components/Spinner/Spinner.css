@@ -1,9 +1,9 @@
 
 .loader {
-  width: 80px;
+  width: 60px;
   aspect-ratio: 1;
   display: grid;
-  border: 8px solid #0000;
+  border: 5px solid #0000;
   border-radius: 50%;
   /* border-color: #ccc #0000; */
   border-color: #0F172A #0000;

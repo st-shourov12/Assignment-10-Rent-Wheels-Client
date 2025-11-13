@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import useCars from '../UseHook/UseCars';
-import Spinner from '../Spinner/Spinner';
+
 import Car from '../Car/Car';
+import Spinner2 from '../Spinner/Spinner2';
 
 const HomeSearch = () => {
     const {cars} = useCars();
@@ -77,7 +78,7 @@ const HomeSearch = () => {
             </div>
 
                 {
-                load ? <Spinner /> :
+                load ? <Spinner2 /> :
 
 
                 
