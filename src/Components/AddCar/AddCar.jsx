@@ -86,7 +86,7 @@ const AddCar = () => {
                         </div>
             )}
 
-            <div className='max-w-[90%] lg:max-w-[70%] bg-[#16213E] text-white mx-auto p-5 sm:p-10 border border-gray-600 my-10 xl:my-20 rounded-2xl'>
+            <div className='max-w-[90%] lg:max-w-[70%] bg-[#16213E] text-white mx-auto p-5 sm:p-10 border border-gray-600 my-5 sm:my-10 xl:my-20 rounded-2xl'>
                 <h2 className='text-center text-4xl'>Add a Car</h2>
 
                 <form onSubmit={handleAddCar} className='p-5 flex flex-col gap-2'>
@@ -123,7 +123,7 @@ const AddCar = () => {
                         </fieldset>
                     </div>
                     
-                    
+
                     
                     <label  className="label text-white">Image URL</label>
                     

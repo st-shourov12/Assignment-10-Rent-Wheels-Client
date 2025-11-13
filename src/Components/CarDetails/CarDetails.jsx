@@ -201,7 +201,7 @@ const CarDetails = () => {
                         <p className="text-gray-600">{filterCar?.providerEmail}</p>
                     </div>
                     <div>
-                        <button type='button' onClick={()=>{handleModal()} }  className={`mt-6 w-full text-white py-3 rounded-lg ${filterCar?.availability === "Booked" ? 'bg-red-600' :'bg-blue-600 hover:bg-blue-700'} `}>
+                        <button type='button' onClick={()=>{handleModal()} }  className={`mt-6 w-full text-white py-3 rounded-lg ${filterCar?.availability === "Booked" ? 'bg-red-600' :'bg-green-600 hover:bg-green-700'} `}>
                             {filterCar?.availability === "Booked" ? 'Booked' : 'Book'}
                         </button>
 
@@ -228,7 +228,7 @@ const CarDetails = () => {
                                             </fieldset> */}
                                         
                                         <div className="flex justify-between gap-3">
-                                            <button type='submit' className="w-full py-3 text-white rounded-lg px-4 bg-blue-600 hover:bg-blue-700">Book</button>
+                                            <button type='submit' className="w-full py-3 text-white rounded-lg px-4 bg-green-600 hover:bg-green-700">Book</button>
                                             <button type='button' onClick={()=>handleCancelBook()} className="bg-[#DC2626] hover:bg-red-800 rounded-lg text-white py-3 w-full">Cancel</button>
 
                                         </div>

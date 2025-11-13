@@ -17,7 +17,7 @@ const LatestCars = ({latestCarsPromise}) => {
 
     // ({cars.length})
     return (
-        <div className='bg-[#E2E8F0] p-10 md:p-16'>
+        <div className='bg-[#E2E8F0] p-5 sm:p-10 md:p-16'>
 
             
             

@@ -76,7 +76,7 @@ const Navbar = () => {
                     <UserProfile></UserProfile> : 
                     <div className='flex log-btn gap-2.5'>
                         <NavLink to={'/login'} className={'px-3 py-2 bg-white text-[#0F172A] rounded-lg '}>Login</NavLink>
-                        <NavLink to={'/register'} className={'px-3 py-2 bg-[#06B6D4] text-white rounded-lg '}>Register</NavLink>
+                        {/* <NavLink to={'/register'} className={'px-3 py-2 bg-[#06B6D4] text-white rounded-lg '}>Register</NavLink> */}
                     </div>
                 }
                 

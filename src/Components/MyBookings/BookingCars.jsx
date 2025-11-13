@@ -190,7 +190,7 @@ const BookingCars = ({myCarPromise, user}) => {
 
                     <div key={car?._id} className={`p-5 ${stateBookCar.length === 1 && 'lg:w-[500px]'} flex flex-col gap-3 justify-between bg-[#ffffff] shadow-md hover:shadow-lg transition duration-300 rounded-xl`}>
                         <figure>
-                            <img src={car?.image} alt={car?.carName}  className={ 'w-full h-[280px]  rounded-xl  object-cover'}/>
+                            <img src={car?.image} alt={car?.carName}  className={ 'w-full h-[200px] md:h-[250px] rounded-xl  object-cover'}/>
                         </figure>
                         <h3 className='text-xl font-bold'>{car?.carName}</h3>
 

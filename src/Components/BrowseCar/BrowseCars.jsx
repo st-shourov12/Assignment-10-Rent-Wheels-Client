@@ -45,7 +45,7 @@ const BrowseCars = () => {
     console.log(cars);
     return (
         <div className='bg-[#F5F7FA]'>
-            <h2 className="text-4xl text-center font-bold py-10">All <span className="text-[#6C63FF]">Cars</span> ({searchedCar.length})</h2>
+            <h2 className="text-4xl text-center font-bold py-10">{searchedCar.length === cars.length ? 'All' : 'Searched'} <span className="text-[#6C63FF]">Cars</span> ({searchedCar.length})</h2>
 
             <div className='flex justify-center my-5'>
                 <label className='input '>

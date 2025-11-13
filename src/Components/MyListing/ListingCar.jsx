@@ -132,7 +132,7 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
     return (
         <div className={`p-5 ${myCars.length === 1 && 'lg:w-[500px]'}  flex flex-col gap-3 justify-between bg-[#ffffff] shadow-md hover:shadow-lg transition duration-300 rounded-xl`}>
             <figure>
-                <img src={myCar?.imageUrl} alt={myCar?.carName}  className={ 'w-full h-[280px] rounded-xl  object-cover'}/>
+                <img src={myCar?.imageUrl} alt={myCar?.carName}  className={ 'w-full h-[200px] md:h-[250px] rounded-xl  object-cover'}/>
             </figure>
             <div className="grid gap-4 grid-cols-2 justify-between items-center">
                 <h2 className="text-2xl font-bold col-span-2 md:col-span-1">

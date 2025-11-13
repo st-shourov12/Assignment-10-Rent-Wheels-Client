@@ -8,15 +8,15 @@ const Footer = () => {
     
 
     return (
-        <footer className="bg-[#0F172A] text-gray-300 py-12 px-6">
+        <footer className="bg-[#0F172A] text-gray-300 py-8 md:py-12 px-6">
             <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-3 lg:grid-cols-4">
                 
 
-                <div className="flex flex-col items-start space-y-4">
-                    <Link to="/" className="text-3xl font-bold text-white hover:text-red-500 transition duration-300">
+                <div className="flex flex-col items-start md:items-center lg:items-start md:col-span-3 lg:col-span-1 space-y-4">
+                    <Link to="/" className="text-3xl font-bold text-white md:text-center lg:text-start hover:text-red-500 transition duration-300">
                     <span className="text-red-500">Rent</span>Wheels
                     </Link>
-                    <p className="text-gray-200 leading-relaxed text-sm">
+                    <p className="text-gray-200 md:text-center lg:text-start leading-relaxed text-sm">
                     RentWheels is a modern car rental platform that connects users with local providers.
                     Book, manage, and explore cars easily from anywhere, anytime.
                     </p>
@@ -51,7 +51,7 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/terms" className="flex items-center gap-2 hover:text-[#06B6D4] transition duration-300">
+                            <Link to="/" className="flex items-center gap-2 hover:text-[#06B6D4] transition duration-300">
                                 <FaBook></FaBook> Terms & Conditions
                             </Link>
                           
@@ -87,7 +87,7 @@ const Footer = () => {
                 
 
 
-            <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-200 text-sm">
+            <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-200 text-sm md:text-[16px]">
             © {new Date().getFullYear()} <span className="text-red-500 font-semibold">Rent</span>Wheels . All rights reserved.
             </div>
         </footer>
