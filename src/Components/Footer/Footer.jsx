@@ -1,15 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { FaFacebookF, FaGithub, FaHome, FaCar } from 'react-icons/fa';
-import { FaLinkedin } from 'react-icons/fa6';
-import { toast } from 'react-toastify';
+import { FaFacebookF, FaGithub, FaHome, FaCar, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaBook, FaLinkedin } from 'react-icons/fa6';
+
 
 const Footer = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        toast.success('Thanks for Staying with us');
-        e.target.reset()
-    }
+    
 
     return (
         <footer className="bg-[#0F172A] text-gray-300 py-12 px-6">
@@ -27,6 +23,21 @@ const Footer = () => {
                 </div>
 
                 <div>
+                    <h3 className="text-white font-semibold text-lg mb-4 border-b border-red-500 w-fit pb-1">
+                        Contact Info
+                    </h3>
+                    <ul className="space-y-3 text-gray-200">
+                        <li className="flex items-center gap-2">
+                            <FaPhoneAlt /> +880 1906139715
+                        </li>
+                        <li className="flex items-center gap-2">
+                            <FaEnvelope /> support@rentwheels.com
+                        </li>
+                        <li>Dhaka, Bangladesh</li>
+                    </ul>
+                </div>
+
+                <div>
                     <h3 className="text-white font-semibold text-lg mb-4 border-b border-red-500 w-fit pb-1">Quick Links</h3>
                     <ul className="space-y-3 text-gray-200">
                         <li>
@@ -40,9 +51,10 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
-                            <a href="https://github.com/st-shourov12/" target="_blank" className="flex items-center gap-2 hover:text-[#06B6D4] transition duration-300">
-                            <FaGithub /> GitHub
-                            </a>
+                            <Link to="/terms" className="flex items-center gap-2 hover:text-[#06B6D4] transition duration-300">
+                                <FaBook></FaBook> Terms & Conditions
+                            </Link>
+                          
                         </li>
                     </ul>
                 </div>
@@ -70,17 +82,9 @@ const Footer = () => {
                 </div>
 
 
-                <div>
-                    <h3 className="text-white font-semibold text-lg mb-4 border-b border-red-500 w-fit pb-1">Stay Updated</h3>
-                    <p className="text-gray-200 mb-3 text-sm">Subscribe for latest offers & car updates!</p>
-                    <form onSubmit={handleSubmit}  className="flex">
-                        <input type="email" placeholder="Enter your email" className="w-full bg-white px-3 py-2 rounded-l-lg focus:outline-none text-black" />
-                        <button className="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-r-lg transition duration-300">
-                            Subscribe
-                        </button>
-                    </form>
-                </div>
+                
             </div>
+                
 
 
             <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-200 text-sm">
@@ -91,3 +95,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

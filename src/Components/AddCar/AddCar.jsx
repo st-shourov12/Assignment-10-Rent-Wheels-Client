@@ -100,10 +100,10 @@ const AddCar = () => {
                         <fieldset className='sm:w-1/2'>
 
                             <label className="label text-white">Category</label>
-                            <select name='category' defaultValue="Electric" className="select text-black w-full">
+                            <select name='category' defaultValue="SUV" className="select text-black w-full">
                                 <option disabled={true}>Select a Category</option>
-                                <option>Sedan</option>
                                 <option>SUV</option>
+                                <option>Sedan</option>
                                 <option>Luxury</option>
                                 <option>Electric</option>
                                 <option>Hatchback</option>
