@@ -74,7 +74,7 @@ const Footer = () => {
                     <h3 className="text-white font-semibold text-lg mb-4 border-b border-red-500 w-fit pb-1">Stay Updated</h3>
                     <p className="text-gray-200 mb-3 text-sm">Subscribe for latest offers & car updates!</p>
                     <form onSubmit={handleSubmit}  className="flex">
-                    <input type="email" placeholder="Enter your email" className="w-full bg-white px-3 py-2 rounded-l-lg focus:outline-none text-black" />
+                        <input type="email" placeholder="Enter your email" className="w-full bg-white px-3 py-2 rounded-l-lg focus:outline-none text-black" />
                         <button className="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-r-lg transition duration-300">
                             Subscribe
                         </button>
@@ -83,8 +83,8 @@ const Footer = () => {
             </div>
 
 
-            <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-300 text-sm">
-            © {new Date().getFullYear()} <span className="text-red-500 font-semibold">RentWheels</span>. All rights reserved.
+            <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-200 text-sm">
+            © {new Date().getFullYear()} <span className="text-red-500 font-semibold">Rent</span>Wheels . All rights reserved.
             </div>
         </footer>
     );
