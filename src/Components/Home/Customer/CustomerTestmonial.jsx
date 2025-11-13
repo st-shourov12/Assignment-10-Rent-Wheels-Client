@@ -19,7 +19,7 @@ const CustomerTestmonial = () => {
                     <figure>
                         <img src="https://i.ibb.co.com/60JQCzkq/Kittens-Lying-Face-Tabby-and-Red-Cat-Wallpaper.jpg" className='w-[60px] h-[60px] rounded-full'/>
                     </figure>
-                    <h3 className="text-2xl font-semibold">
+                    <h3 className="text-2xl text-[#DC2626] font-semibold">
                         Nur Hassan
                     </h3>
                     <div className="star text-yellow-500 flex">
@@ -37,7 +37,7 @@ const CustomerTestmonial = () => {
                     <figure>
                         <img src="https://i.ibb.co.com/yrrM3Vc/429281.jpg" className='w-[60px] h-[60px] rounded-full'/>
                     </figure>
-                    <h3 className="text-2xl font-semibold">
+                    <h3 className="text-2xl text-[#DC2626] font-semibold">
                         Aliya Ahsan
                     </h3>
                     <div className="star text-yellow-500 flex">
@@ -55,8 +55,8 @@ const CustomerTestmonial = () => {
                     <figure>
                         <img src="https://i.ibb.co.com/8n7VqLJt/mini.jpg" className='w-[60px] h-[60px] rounded-full'/>
                     </figure>
-                    <h3 className="text-2xl font-semibold">
-                        Miru Shah
+                    <h3 className="text-2xl text-[#DC2626] font-semibold">
+                        Dev Show
                     </h3>
                     <div className="star text-yellow-500 flex">
                         <FaStar></FaStar>
