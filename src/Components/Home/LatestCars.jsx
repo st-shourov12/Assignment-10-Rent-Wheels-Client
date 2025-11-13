@@ -18,6 +18,8 @@ const LatestCars = ({latestCarsPromise}) => {
     // ({cars.length})
     return (
         <div className='bg-[#E2E8F0] p-10 md:p-16'>
+
+            
             
             
             <h2 className="text-4xl text-center font-bold pb-15">{cars.length === 6 ? 'Latest' : 'All'} <span className="text-[#DC2626]">Cars</span></h2>

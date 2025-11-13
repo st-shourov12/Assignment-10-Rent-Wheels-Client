@@ -76,6 +76,8 @@ const AddCar = () => {
     }
     return (
         <div className='relative'>
+            <title>Rent Wheels - Add Car</title>
+
 
             {showAnimation && (
                         <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 rounded-xl z-10">

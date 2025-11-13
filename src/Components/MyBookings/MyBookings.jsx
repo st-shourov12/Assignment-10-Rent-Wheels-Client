@@ -22,6 +22,7 @@ const MyBookings = () => {
 
     return (
         <div className="bg-[#F5F7FA] ">
+            <title>Rent Wheels - Booking list</title>
         
             <Suspense fallback={<Spinner></Spinner>}>
 

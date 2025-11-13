@@ -144,6 +144,9 @@ const CarDetails = () => {
     return (
     <div className="lg:max-w-[80%] relative mx-auto p-6 sm:p-10">
 
+            <title>Rent Wheels - Car</title>
+
+
 
         {showAnimation && (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-90 rounded-xl z-10">

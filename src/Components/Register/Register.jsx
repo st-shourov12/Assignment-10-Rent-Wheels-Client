@@ -38,13 +38,21 @@ const Register = () => {
         const password = event.target.password.value;
 
         if (password.length < 6) {
-            return setPassError('Password must be at least 6 character')
+            setPassError('Password must be at least 6 character');
+            toast.error('Password must be at least 6 characters long');
+            return
+      
+
         }
         if (!/[A-Z]/.test(password)) {
-            return setPassError("Password must have at least one Uppercase letter");
+            setPassError("Password must have at least one Uppercase letter");
+            toast.error('Password must contain at least one uppercase letter');
+            return 
         }
         if (!/[a-z]/.test(password)) {
-            return setPassError("Password must have at least one Lowercase letter");
+            setPassError("Password must have at least one Lowercase letter");
+            toast.error('Password must contain at least one uppercase letter');
+            return
         }
 
         setPassError("");
@@ -95,7 +103,7 @@ const Register = () => {
         })
         .catch( err=> {
             toast.error(err.message);
-            console.log(err);
+            
             
         }
         );
@@ -135,7 +143,7 @@ const Register = () => {
 
     return (
         <div className="hero bg-[#F7FAFC] p-5 sm:p-10 lg:p-20">
-            <title>Rent Wheels - Sign up</title>
+            <title>Rent Wheels - Register</title>
 
             <div className="card bg-[#16213E] text-white w-full mx-auto max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">

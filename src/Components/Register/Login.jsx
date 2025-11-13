@@ -33,6 +33,19 @@ const Login = () => {
         
         const email = event.target.email.value;
         const password = event.target.password.value;
+
+        if (password.length < 6) {
+            toast.error('Password must be at least 6 characters long');
+            return;
+        }
+        if (!/[A-Z]/.test(password)) {
+        toast.error('Password must contain at least one uppercase letter');
+        return;
+        }
+        if (!/[a-z]/.test(password)) {
+        toast.error('Password must contain at least one lowercase letter');
+        return;
+        }
         
         signInUser(email, password)
         .then(res => {
@@ -42,7 +55,7 @@ const Login = () => {
            
             
         })
-        .catch( err=> toast.error(err.message))
+        .catch( () => toast.error('User Profile does not Found'))
 
         event.target.reset()
     }
@@ -86,7 +99,7 @@ const Login = () => {
                         <form onSubmit={handleLogin}>
                             <fieldset className="fieldset">
                                 <label className="label text-white">Email</label>
-                                <input type="email" name='email' className="input w-full text-black" placeholder="Email" />
+                                <input type="email" required name='email' className="input w-full text-black" placeholder="Email" />
                                 <label className="label text-white">Password</label>
                                 <div className="relative">
                                     <input type={showPassword ? "text" : "password"} name='password' className="input w-full text-[#16213e] relative" placeholder="Password" required/>

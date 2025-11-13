@@ -7,6 +7,8 @@ const Browse = () => {
 
     return (
         <div className='[bg-[#F5F7FA] '>
+            <title>Rent Wheels - All Cars</title>
+
             
 
             
