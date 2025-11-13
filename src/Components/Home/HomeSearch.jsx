@@ -63,7 +63,7 @@ const HomeSearch = () => {
                 </h2>
 
 
-                <label className='input w-8/10 sm:w-1/2 '>
+                <label className='input w-8/10 sm:w-1/2 rounded-lg'>
                         <input value={search} onChange={handleSearch} type="search"  placeholder='Search Car' />
                 </label>
 

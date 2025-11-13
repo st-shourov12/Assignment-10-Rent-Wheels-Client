@@ -50,7 +50,7 @@ const Login = () => {
     const handleGoogleSignIn = () =>{
         signInWithGoogle()
                 .then( (res) =>{
-                    console.log(res);
+                    
                     const newUser = {
                         name: res.user.displayName,
                         email: res.user.email,
@@ -66,6 +66,7 @@ const Login = () => {
                     })
                     .then(res=> res.json())
                     .then(data=>console.log(data))
+                    toast.success('Sign In Successfully')
                     
                     navigate(location?.state || '/')
                 })

@@ -87,7 +87,8 @@ const Register = () => {
                 body: JSON.stringify(newUser)
             })
             .then(res=> res.json())
-            .then(data=>console.log(data))
+            .then(data=>console.log(data));
+            
                 
             navigate(location?.state || '/');
             // setUser(res.user);
@@ -121,7 +122,8 @@ const Register = () => {
                 body: JSON.stringify(newUser)
             })
             .then(res=> res.json())
-            .then(data=>console.log(data))
+            .then(data=>console.log(data));
+            toast.success('Sign In Successfully')
             
             navigate(location?.state || '/')
         })

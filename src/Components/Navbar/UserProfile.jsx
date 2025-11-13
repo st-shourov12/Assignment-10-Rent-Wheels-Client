@@ -1,6 +1,7 @@
 import React, { Suspense, use, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import MyProfile from './My Profile/MyProfile';
+import Spinner2 from '../Spinner/Spinner2';
 
 const UserProfile = () => {
     const { user } = use(AuthContext);
@@ -19,7 +20,7 @@ const UserProfile = () => {
             
             {isToggle && (
                 <div className="absolute right-0 mt-3 z-9999 rounded-2xl w-[300px] p-3" onClick={(e) => e.stopPropagation()} >
-                    <Suspense fallback='load'>
+                    <Suspense fallback={<Spinner2 />}>
                         <MyProfile updateUserProfilePromise={updateUserProfilePromise} handleToggle={handleToggle} keepOpen={() => setIsToggle(true)} />
                     </Suspense>
                     
