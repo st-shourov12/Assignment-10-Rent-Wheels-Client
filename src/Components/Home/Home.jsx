@@ -5,6 +5,7 @@ import HeroSection from './HeroSection';
 import WhyRentWithUs from './WhyRent/WhyRentWithUs';
 import TopCar from './TopCar';
 import CustomerTestmonial from './Customer/CustomerTestmonial'
+import HomeSearch from './HomeSearch';
 
 const Home = () => {
     const latestCarsPromise = fetch(`https://rent-wheels-server-sigma.vercel.app/latestCars`)
@@ -14,6 +15,7 @@ const Home = () => {
     return (
         <div className='bg-[#F5F7FA]'>
             <HeroSection></HeroSection>
+            <HomeSearch></HomeSearch>
             <Suspense fallback={<Spinner></Spinner>}>
 
                 <LatestCars latestCarsPromise={latestCarsPromise}></LatestCars>

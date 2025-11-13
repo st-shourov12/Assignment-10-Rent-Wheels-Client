@@ -181,7 +181,7 @@ const CarDetails = () => {
                     </div>
                     <div>
                         <button type='button' onClick={()=>{handleModal()} }  className={`mt-6 w-full text-white py-3 rounded-lg ${filterCar?.availability === "Booked" ? 'bg-red-600' :'bg-blue-600 hover:bg-blue-700'} `}>
-                            Book Now
+                            {filterCar?.availability === "Booked" ? 'Booked' : 'Book'}
                         </button>
 
 

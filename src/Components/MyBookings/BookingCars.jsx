@@ -107,6 +107,7 @@ const BookingCars = ({myCarPromise, user}) => {
        
         const updateBookCar = stateBookCar.filter(car => car?._id !== selectedCar?._id);
         setStateBookCar(updateBookCar);
+        setDbBookCars(updateBookCar);
         
         deleteModal.current.close();
         toast.success('Booking cancelled successfully');
@@ -127,7 +128,8 @@ const BookingCars = ({myCarPromise, user}) => {
 
 
 
-        const carIdToUpdate = selectedCar?.carId || selectedCar?._id;
+        // const carIdToUpdate = selectedCar?.carId || selectedCar?._id;
+        const carIdToUpdate = selectedCar?.carId 
         
         if (carIdToUpdate) {
             fetch(`https://rent-wheels-server-sigma.vercel.app/cars/${carIdToUpdate}`, {
@@ -186,9 +188,9 @@ const BookingCars = ({myCarPromise, user}) => {
                     //         <img src={car?.image} alt={car?.carName} className={ 'w-full h-[300px] sm:h-[400px] rounded-xl  object-cover'} />
                     //     </figure>
 
-                    <div key={car?._id} className={`p-5 ${stateBookCar.length === 1 && 'lg:w-[900px]'} flex flex-col gap-3 justify-between border bg-[#ffffff] border-gray-400 rounded-xl`}>
+                    <div key={car?._id} className={`p-5 ${stateBookCar.length === 1 && 'lg:w-[500px]'} flex flex-col gap-3 justify-between bg-[#ffffff] shadow-md hover:shadow-lg transition duration-300 rounded-xl`}>
                         <figure>
-                            <img src={car?.image} alt={car?.carName}  className={ 'w-full h-[300px] sm:h-[400px] rounded-xl  object-cover'}/>
+                            <img src={car?.image} alt={car?.carName}  className={ 'w-full h-[280px]  rounded-xl  object-cover'}/>
                         </figure>
                         <h3 className='text-xl font-bold'>{car?.carName}</h3>
 
@@ -272,82 +274,5 @@ const BookingCars = ({myCarPromise, user}) => {
 
 export default BookingCars;
 
-
-
-
-// import React, { use, useRef, useState } from 'react';
-// import { FaListAlt } from 'react-icons/fa';
-// import { FaCalendarDays, FaDollarSign, FaLocationDot } from 'react-icons/fa6';
-// import { toast } from 'react-toastify';
-// import useCars from '../UseHook/UseCars';
-
-// const BookingCars = ({myCarPromise, user}) => {
-
-//     const bookedCars = use(myCarPromise);
-//     const myBookedCars = bookedCars.filter(car => car?.email === user?.email);
-//     const {cars, setCars, changes} = useCars();
-
-//     const [stateBookCar, setStateBookCar] = useState(myBookedCars);
-//     const [selectedCar, setSelectedCar] = useState(null);
-
-//     const confirmModalRef = useRef();
-//     const deleteModal = useRef();
-    
-    // const handleModalUpdate = (car) => {
-    //     setSelectedCar(car);
-    //     confirmModalRef.current.showModal();
-    // };
-
-    // const handleModalDelete = (car) => {  
-    //     setSelectedCar(car);
-    //     deleteModal.current.showModal();
-    // };
-
-    // const handleCancelDelete = () => {
-    //     deleteModal.current.close();
-    //     setSelectedCar(null);
-    // };
-
-    // const handleCancelUpdate = () => {
-    //     confirmModalRef.current.close();
-    //     setSelectedCar(null);
-    // };
-
-//     const handleUpdateCar = (e) => {
-//         e.preventDefault();
-        
-        // const totalDays = e.target.totalDays.value;
-
-        // fetch(`http://localhost:4000/myCars/${selectedCar?._id}`, {
-        //         method: 'PATCH',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify({
-        //             totalDays : totalDays
-        //         })
-        //     }).then(res => res.json())
-            // .then(data => {
-            //     // console.log('Availability updated:', data);
-            //     const updatedCars = cars.map(car => 
-            //         car._id === carIdToUpdate 
-            //             ? { ...car, totalDays : totalDays } 
-            //             : car
-            //     );
-            //     // setCars(updatedCars);
-            //     // changes();
-            // })
-            // .catch(error => {
-            //     toast.error('Update availability error:', error);
-            // });
-//         }
-
-        
-        
-//         // Add your update logic here
-        // toast.success(`Updated booking for ${selectedCar?.carName}`);
-        // confirmModalRef.current.close();
-        // setSelectedCar(null);
-//     };
 
 

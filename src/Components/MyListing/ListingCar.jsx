@@ -130,9 +130,9 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
     if (deleted) {return null};
 
     return (
-        <div className={`p-5 ${myCars.length === 1 && 'lg:w-[900px]'}  flex flex-col gap-3 justify-between border bg-[#ffffff] border-gray-400 rounded-xl`}>
+        <div className={`p-5 ${myCars.length === 1 && 'lg:w-[500px]'}  flex flex-col gap-3 justify-between bg-[#ffffff] shadow-md hover:shadow-lg transition duration-300 rounded-xl`}>
             <figure>
-                <img src={myCar?.imageUrl} alt={myCar?.carName}  className={ 'w-full h-[300px] sm:h-[400px] rounded-xl  object-cover'}/>
+                <img src={myCar?.imageUrl} alt={myCar?.carName}  className={ 'w-full h-[280px] rounded-xl  object-cover'}/>
             </figure>
             <div className="grid gap-4 grid-cols-2 justify-between items-center">
                 <h2 className="text-2xl font-bold col-span-2 md:col-span-1">
@@ -152,11 +152,11 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
                 </div>
             </div>
             
-            <div className='font-semibold '>
+            <div className='font-semibold text-green-600'>
                $ {
                     myCar?.rentPrice
                 }
-                <span className='font-normal'>/ Day</span>
+                <span className='font-normal text-gray-700'> /day</span>
             </div>
             <div className="btn-grp flex gap-3">
                 <div className='w-1/2'>

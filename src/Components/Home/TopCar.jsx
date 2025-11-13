@@ -6,7 +6,7 @@ const TopCar = () => {
 
     const {cars} = useCars();
     const topRatedCars = [...cars].sort((a, b) => b.rentPrice - a.rentPrice).slice(0, 3);
-    console.log(topRatedCars);
+    
     return (
         <div className='md:p-10' >
             
