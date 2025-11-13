@@ -11,7 +11,7 @@ const useCars = () => {
     const [reload, setReload] = useState(false);
 
     useEffect(()=>{
-        axios('http://localhost:4000/cars')
+        axios('https://rent-wheels-server-sigma.vercel.app/cars')
         .then(r => setCars(r.data))
         .catch(err => setError(err))
         .finally(()=>setLoading(false))

@@ -22,7 +22,7 @@ const Car = ({car}) => {
 
                 <h3 className="text-sm font-medium flex items-center">Provider : <span className='text-gray-600 text-lg'>  { providerName}</span></h3>
                 
-                <Link to={`/cars/${_id}`} className='px-4 py-3 w-full text-center text-white bg-[#DC2626] hover:bg-red-700 rounded-xl'>View Details</Link>
+                <Link to={`/cars/${_id}`} className='px-4 py-3 w-full text-center text-white bg-[#16A34A] hover:bg-emerald-700 rounded-xl'>View Details</Link>
             </div>
         </div>
     );

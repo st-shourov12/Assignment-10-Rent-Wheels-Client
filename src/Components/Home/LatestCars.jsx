@@ -13,15 +13,16 @@ const LatestCars = ({latestCarsPromise}) => {
     }
     const cars = use(latestCarsPromise);
 
-    console.log(cars);
-    return (
-        <div className='bg-[#F5F7FA]'>
-            <h2 className="text-4xl text-center font-bold py-10">{cars.length === 6 ? 'Latest' : 'All'} <span className="text-[#6C63FF]">Cars</span> ({cars.length})</h2>
 
-            <div className={`grid md:grid-cols-2 xl:grid-cols-3 ${cars.length > 6 && '2xl:grid-cols-4'} gap-10 px-2 pb-10`}>
+    // ({cars.length})
+    return (
+        <div className='bg-[#E2E8F0] p-10 md:p-16'>
+            <h2 className="text-4xl text-center font-bold pb-10">{cars.length === 6 ? 'Latest' : 'All'} <span className="text-[#DC2626]">Cars</span></h2>
+
+            <div className={`grid md:grid-cols-2 xl:grid-cols-3 ${cars.length > 6 && '2xl:grid-cols-4'} gap-10 px-2 `}>
                 {
                     cars.map(car =>(
-                        <Car key={car._id} car={car}></Car>
+                        <Car key={car._id} car={car}></Car> 
                     ))
                 }
             </div>

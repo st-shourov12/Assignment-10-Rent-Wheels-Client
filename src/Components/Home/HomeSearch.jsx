@@ -54,7 +54,7 @@ const HomeSearch = () => {
 
     return (
         <div>
-            <div className='flex flex-col gap-2 sm:gap-5 items-center justify-center py-5 my-5'>
+            <div className={`flex flex-col gap-2 md:gap-5 items-center justify-center py-5 my-5 ${searchedCar.length === 0 && 'my-10 lg:my-20' }`}>
 
                 <h2 className="text-2xl lg:text-3xl font-bold text-[#0F172A] text-center">
             
@@ -62,17 +62,17 @@ const HomeSearch = () => {
                 </h2>
 
 
-                <label className='input w-8/10 sm:w-1/2'>
+                <label className='input w-8/10 sm:w-1/2 '>
                         <input value={search} onChange={handleSearch} type="search"  placeholder='Search Car' />
                 </label>
 
                 {searchedCar.length === 0 ? 
-                    <div>
+                    <div className='text-gray-700 text-center px-3 lg:font-semibold font-medium'>
                         <p>Book your dream car in just a few clicks with our simple and user-friendly process.</p>
                     </div>
                     :
                 
-                    <h3 className="text-xl font-semibold">Cars Found (<span className="text-[#DC2626]">{searchedCar.length}</span>)</h3>
+                    <h3 className="text-2xl font-bold">Cars Found (<span className="text-[#DC2626]">{searchedCar.length}</span>)</h3>
                 }
             </div>
 

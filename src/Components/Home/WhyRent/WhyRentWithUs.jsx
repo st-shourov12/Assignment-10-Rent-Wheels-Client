@@ -7,7 +7,7 @@ const WhyRentWithUs = () => {
     <section className="py-16 bg-[#F5F7FA]">
         <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-[#0F172A] mb-10">
-            Why Rent <span className="text-[#DC2626]">With Us</span>
+           <span className="text-[#DC2626]"> Why Rent </span>With Us
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             
