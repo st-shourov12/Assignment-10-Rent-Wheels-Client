@@ -147,8 +147,9 @@ const Register = () => {
                                     <label className="label text-white">Email</label>
                                     <input type="email" name='email' className="input w-full text-black" placeholder="Email" required />
                                     <label className="label text-white">PhotoURL</label>
-                                    <input type="text" name='photoURL' className="input w-full text-black" placeholder="PhotoURL" required/>
+                                    <input type="url" name='photoURL' className="input w-full text-black" pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" title="Must be valid URL" placeholder="https://..." required/>
                                     <label className="label text-white">Password</label>
+                                    
                                     
                                     <div className="relative">
                                         <input type={showPassword ? "text" : "password"} name='password' className="input w-full text-[#16213e]" placeholder="Password" required/>

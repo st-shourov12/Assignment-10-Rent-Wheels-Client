@@ -174,12 +174,12 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
                                         <fieldset className='sm:w-1/2'>
 
                                             <label className="label text-gray-800">Car Name</label>
-                                            <input name='carName' defaultValue={myCar?.carName} type="text" className="input text-gray-800 w-full" placeholder="Car" />
+                                            <input name='carName' required defaultValue={myCar?.carName} type="text" className="input text-gray-800 w-full" placeholder="Car" />
                                         </fieldset>
                                         <fieldset className='sm:w-1/2'>
 
                                             <label className="label text-gray-800">Category</label>
-                                            <select name='category' defaultValue={myCar?.category} className="select text-gray-800 w-full">
+                                            <select name='category'  defaultValue={myCar?.category} className="select text-gray-800 w-full">
                                                 <option disabled={true}>Select a Category</option>
                                                 <option>Sedan</option>
                                                 <option>SUV</option>
@@ -204,18 +204,20 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
                                     <div className="flex flex-col sm:flex-row gap-1">
                                         <fieldset className='sm:w-1/2'>
                                             <label className="label w-full text-gray-800">Rent Price</label>
-                                            <input defaultValue={myCar?.rentPrice} name='rentPrice' type="number" className="input text-gray-800 w-full" placeholder="Rent Price(Per day)" />
+                                            <input defaultValue={myCar?.rentPrice} required name='rentPrice' type="number" className="input text-gray-800 w-full" placeholder="Rent Price(Per day)" />
                                         </fieldset>
                                         <fieldset className='sm:w-1/2'>
                                             <label className="label text-gray-800">Location</label>
-                                            <input defaultValue={myCar?.location} name='location' type="text" className="input text-gray-800 w-full" placeholder="Location" />
+                                            <input defaultValue={myCar?.location} required name='location' type="text" className="input text-gray-800 w-full" placeholder="Location" />
 
                                         </fieldset>
                                     </div>
                                     
                                     
                                     <label className="label text-gray-800">Image URL</label>
-                                    <input defaultValue={myCar?.imageUrl} name='img' type="text" className="input text-gray-800 w-full" placeholder="imgURL" />
+                                    
+                                    <input name='img' type="url" defaultValue={myCar?.imageUrl}  placeholder="imgURL" pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" title="Must be valid URL" className="input text-gray-800 w-full validator" required/>
+                                    
                                     
                                     <legend className="fieldset-legend text-gray-800">Description</legend>
                                     <textarea defaultValue={myCar?.description} name='describe' className="textarea text-gray-800 w-full h-20" placeholder="Describe your car"></textarea>

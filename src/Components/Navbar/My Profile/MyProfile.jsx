@@ -129,7 +129,8 @@ const MyProfile = ({handleToggle, updateUserProfilePromise}) => {
                                     <input defaultValue={user?.displayName} type="text" name='name' className="input w-full text-black" placeholder="Name" />
                                     
                                     <label className="label">PhotoURL</label>
-                                    <input defaultValue={user?.photoURL} type="text" name='photoURL' className="input w-full text-black" placeholder="PhotoURL" />
+                                    <input defaultValue={user?.photoURL} type="url" name='photoURL' pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" title="Must be valid URL"  className="input w-full text-black" placeholder="PhotoURL" required />
+                                    
                                     
 
                                     
