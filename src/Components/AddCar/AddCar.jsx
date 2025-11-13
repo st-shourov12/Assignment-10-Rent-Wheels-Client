@@ -124,6 +124,7 @@ const AddCar = () => {
                     </div>
                     
                     
+                    
                     <label  className="label text-white">Image URL</label>
                     
                     <input name='img' type="url" required placeholder="imgURL" pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" title="Must be valid URL" className="input text-black w-full validator" />  
