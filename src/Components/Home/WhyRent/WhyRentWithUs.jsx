@@ -5,11 +5,11 @@ const WhyRentWithUs = () => {
 
     return (
     <section className="py-16 bg-[#F5F7FA]">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto  text-center">
             <h2 className="text-3xl font-bold text-[#0F172A] mb-10">
             <span className="text-[#DC2626]"> Why Rent </span>With Us
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-between gap-8">
                 
                     <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
                         <div className="mb-4"><FaCalendarCheck className="text-4xl text-[#DC2626]" /></div>

@@ -5,12 +5,12 @@ import UserProfile from './UserProfile';
 import './Navbar.css'
 
 const Navbar = () => {
-    const {user} = use(AuthContext);
+    const { user } = use(AuthContext);
 
-    
-    
 
-   
+
+
+
     return (
         <nav className="navbar bg-[#0F172A] text-white shadow-sm">
             <div className="navbar-start">
@@ -27,59 +27,70 @@ const Navbar = () => {
                         <li>
                             <NavLink to={'/cars'}>Browse Car</NavLink>
                         </li>
-                        
 
-                                <li>
-                                    <NavLink to={'addCar'}>Add Car</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to={'myList'}>My Listings</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to={'bookings'}>My Bookings</NavLink>
-                                </li>
-                                            
-                        
-                        
+
+                        <li>
+                            <NavLink to={'addCar'}>Add Car</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'myList'}>My Listings</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'bookings'}>My Bookings</NavLink>
+                        </li>
+
+
+
                     </ul>
                 </div>
                 <Link to={'/'} className="text-xl font-semibold"><span className='text-red-500'>Rent</span>Wheels</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                <li>
+                    <li>
                         <NavLink to={'/'}>Home</NavLink>
                     </li>
                     <li>
                         <NavLink to={'/cars'}>Browse Car</NavLink>
                     </li>
-                    
 
-                            <li>
-                                <NavLink to={'addCar'}>Add Car</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'myList'}>My Listings</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'bookings'}>My Bookings</NavLink>
-                            </li>
-                                        
-                        
-                    
+
+                    <li>
+                        <NavLink to={'addCar'}>Add Car</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'myList'}>My Listings</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'bookings'}>My Bookings</NavLink>
+                    </li>
+                    <li>
+                        <input
+                            type="checkbox"
+                            className="toggle theme-controller"
+                            onChange={(e) => {
+                                const theme = e.target.checked ? 'rent-dark' : 'rent';
+                                document.documentElement.setAttribute('data-theme', theme);
+                                localStorage.setItem('theme', theme);
+                            }}
+                        />
+                    </li>
+
+
+
                 </ul>
             </div>
             <div className="navbar-end">
 
                 {
-                    user ? 
-                    <UserProfile></UserProfile> : 
-                    <div className='flex log-btn gap-2.5'>
-                        <NavLink to={'/login'} className={'px-3 py-2 bg-white text-[#0F172A] rounded-lg '}>Login</NavLink>
-                        {/* <NavLink to={'/register'} className={'px-3 py-2 bg-[#06B6D4] text-white rounded-lg '}>Register</NavLink> */}
-                    </div>
+                    user ?
+                        <UserProfile></UserProfile> :
+                        <div className='flex log-btn gap-2.5'>
+                            <NavLink to={'/login'} className={'px-3 py-2 bg-white text-[#0F172A] rounded-lg '}>Login</NavLink>
+                            {/* <NavLink to={'/register'} className={'px-3 py-2 bg-[#06B6D4] text-white rounded-lg '}>Register</NavLink> */}
+                        </div>
                 }
-                
+
             </div>
         </nav>
     );

@@ -1,3 +1,6 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@custom-variant dark (&:where([data-theme=rent-dark], [data-theme=rent-dark] *));
 
+@plugin "daisyui" {
+  themes: rent --default, rent-dark --prefersdark;
+}

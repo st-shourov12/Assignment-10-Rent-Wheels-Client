@@ -54,7 +54,7 @@ const HomeSearch = () => {
 
 
     return (
-        <div>
+        <div className='container mx-auto'>
             <div className={`flex flex-col gap-2 md:gap-5 items-center justify-center py-5 my-5 ${searchedCar.length === 0 && 'my-10 lg:my-20' }`}>
 
                 <h2 className="text-2xl lg:text-3xl font-bold text-[#0F172A] text-center">
@@ -87,7 +87,7 @@ const HomeSearch = () => {
                     
                             searchedCar.length === 0 ? 
                             <></>                  :
-                            <div className={`grid md:grid-cols-2 xl:grid-cols-3 ${searchedCar.length === 1 && 'md:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1'} ${searchedCar.length === 2 && 'md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2'} ${searchedCar.length === 3 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3'} ${searchedCar.length === 4 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} ${searchedCar.length == 6 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3'} ${searchedCar.length === 5 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} ${searchedCar.length > 6 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} gap-10 px-2 pb-10`}>
+                            <div className={`grid md:grid-cols-2 xl:grid-cols-3 justify-between ${searchedCar.length === 1 && 'md:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1'} ${searchedCar.length === 2 && 'md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2'} ${searchedCar.length === 3 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3'} ${searchedCar.length === 4 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} ${searchedCar.length == 6 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3'} ${searchedCar.length === 5 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} ${searchedCar.length > 6 && 'md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'} gap-10  pb-10`}>
                                 {
                                     searchedCar.map(car =>(
                                         <Car key={car._id} car={car}></Car>
