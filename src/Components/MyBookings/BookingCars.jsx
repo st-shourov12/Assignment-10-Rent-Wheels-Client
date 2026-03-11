@@ -167,7 +167,7 @@ const BookingCars = ({myCarPromise, user}) => {
 
         <div className='max-w-full  p-5 sm:p-10 flex flex-col justify-between gap-5 items-center mx-auto'>
 
-            <h2 className="text-4xl flex gap-2 items-center">
+            <h2 className="text-4xl flex gap-2 items-center ">
                 <FaListAlt className='text-blue-700' /> My Bookings
             </h2>
             <h3 className="text-xl flex gap-3">
@@ -188,7 +188,7 @@ const BookingCars = ({myCarPromise, user}) => {
                     //         <img src={car?.image} alt={car?.carName} className={ 'w-full h-[300px] sm:h-[400px] rounded-xl  object-cover'} />
                     //     </figure>
 
-                    <div key={car?._id} className={`p-5 ${stateBookCar.length === 1 && 'lg:w-[500px]'} flex flex-col gap-3 justify-between bg-[#ffffff] shadow-md hover:shadow-lg transition duration-300 rounded-xl`}>
+                    <div key={car?._id} className={`p-5 ${stateBookCar.length === 1 && 'lg:w-[500px]'} flex flex-col gap-3 justify-between bg-[#ffffff] dark:bg-gray-900 shadow-md hover:shadow-lg transition duration-300 rounded-xl`}>
                         <figure>
                             <img src={car?.image} alt={car?.carName}  className={ 'w-full h-[200px] md:h-[250px] rounded-xl  object-cover'}/>
                         </figure>
@@ -210,7 +210,7 @@ const BookingCars = ({myCarPromise, user}) => {
                             <FaCalendarCheck /> Booking for {car?.totalDays} days
                         </p>
                         <p className='flex gap-2 text-xl items-center text-green-700 font-semibold'>
-                            <FaDollarSign /> {car?.totalPrice} <span className="font-normal text-sm text-gray-700">(${car?.rentPrice}/day)</span>
+                            <FaDollarSign /> {car?.totalPrice} <span className="font-normal text-sm text-gray-700 dark:text-white/75">(${car?.rentPrice}/day)</span>
                         </p>
 
                         <div className="flex gap-3 justify-between">
@@ -226,7 +226,7 @@ const BookingCars = ({myCarPromise, user}) => {
             </div>}
 
             <dialog ref={confirmModalRef} className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
+                <div className="modal-box rounded-2xl dark:bg-gray-700">
                     <h3 className="font-bold text-xl text-center text-green-600">Update Your Booking</h3>
                     
                     <div className="modal-action">
@@ -234,14 +234,14 @@ const BookingCars = ({myCarPromise, user}) => {
                             <h3 className="text-xl mb-3">{selectedCar?.carName}</h3>
 
                             <fieldset className='mb-3'>
-                                <label className="block mb-2 text-black">Total Days</label>
-                                <input key={selectedCar?._id} defaultValue={selectedCar?.totalDays} name='totalDays' type="number" className="input text-black w-full border" placeholder="Total Days" />
+                                <label className="block mb-2 text-black dark:text-white">Total Days</label>
+                                <input key={selectedCar?._id} defaultValue={selectedCar?.totalDays} name='totalDays' type="number" className="input text-black rounded-lg dark:text-white w-full border" placeholder="Total Days" />
                             </fieldset>
 
-                            <button type='submit' className="btn my-3 bg-green-600 text-white py-3 rounded-xl w-full">
+                            <button type='submit' className="btn border-o my-3 bg-green-600 text-white py-3 rounded-xl w-full">
                                 Update
                             </button>
-                            <button type='button' onClick={handleCancelUpdate} className="btn bg-[#DC2626] text-white py-3 rounded-xl w-full">
+                            <button type='button' onClick={handleCancelUpdate} className="btn border-0 bg-[#DC2626] text-white py-3 rounded-xl w-full">
                                 Cancel
                             </button>
                         </form>
@@ -250,9 +250,9 @@ const BookingCars = ({myCarPromise, user}) => {
             </dialog>
 
             
-            <dialog ref={deleteModal} className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg text-center text-black">
+            <dialog ref={deleteModal} className="modal rounded-2xl modal-bottom sm:modal-middle">
+                <div className="modal-box  rounded-2xl dark:bg-gray-700">
+                    <h3 className="font-bold text-lg text-center text-black dark:text-white">
                         Are you sure you want to cancel your booking?
                     </h3>
                     <h3 className="font-bold text-lg text-center text-blue-600 mt-2">
@@ -261,8 +261,8 @@ const BookingCars = ({myCarPromise, user}) => {
                     
                     <div className="modal-action flex justify-between"> 
                                                 
-                        <button onClick={handleDeleteCar} className="btn my-3 bg-[#dc2626] text-white py-4 rounded-xl w-1/2">Yes , Cancel it</button>
-                        <button onClick={()=>handleCancelDelete()} className="btn my-3 bg-green-600 text-white py-4 rounded-xl w-1/2">No , Keep it</button>
+                        <button onClick={handleDeleteCar} className="btn my-3 bg-[#dc2626] text-white border-0 py-4 rounded-xl w-1/2">Yes , Cancel it</button>
+                        <button onClick={()=>handleCancelDelete()} className="btn my-3 bg-green-600 text-white border-0 py-4 rounded-xl w-1/2">No , Keep it</button>
                                             
                     </div>
                 </div>

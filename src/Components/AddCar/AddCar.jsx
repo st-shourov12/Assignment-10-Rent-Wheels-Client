@@ -95,12 +95,12 @@ const AddCar = () => {
                         <fieldset className='sm:w-1/2'>
 
                             <label className="label text-white">Car Name</label>
-                            <input name='carName' required type="text" className="input text-black w-full" placeholder="Car" />
+                            <input name='carName' required type="text" className="input text-black dark:text-white rounded-lg w-full" placeholder="Car" />
                         </fieldset>
                         <fieldset className='sm:w-1/2'>
 
                             <label className="label text-white">Category</label>
-                            <select name='category' defaultValue="SUV" className="select text-black w-full">
+                            <select name='category' defaultValue="SUV" className="select text-black dark:text-white rounded-lg w-full">
                                 <option disabled={true}>Select a Category</option>
                                 <option>SUV</option>
                                 <option>Sedan</option>
@@ -114,11 +114,11 @@ const AddCar = () => {
                     <div className="flex flex-col sm:flex-row gap-1">
                         <fieldset className='sm:w-1/2'>
                             <label className="label w-full text-white">Rent Price</label>
-                            <input required name='rentPrice' type="number" className="input text-black w-full" placeholder="Rent Price(Per day)" />
+                            <input required name='rentPrice' type="number" className="input text-black dark:text-white rounded-lg w-full" placeholder="Rent Price(Per day)" />
                         </fieldset>
                         <fieldset className='sm:w-1/2'>
                             <label className="label text-white">Location</label>
-                            <input required name='location' type="text" className="input text-black w-full" placeholder="Location" />
+                            <input required name='location' type="text" className="input text-black dark:text-white rounded-lg w-full" placeholder="Location" />
 
                         </fieldset>
                     </div>
@@ -127,23 +127,23 @@ const AddCar = () => {
                     
                     <label  className="label text-white">Image URL</label>
                     
-                    <input name='img' type="url" required placeholder="imgURL" pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" title="Must be valid URL" className="input text-black w-full validator" />  
+                    <input name='img' type="url" required placeholder="imgURL" pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" title="Must be valid URL" className="input text-black dark:text-white rounded-lg w-full validator" />  
                     <p className="validator-hint">Must be valid URL</p>
 
                     <div className="flex flex-col sm:flex-row gap-1">
                         <fieldset className='sm:w-1/2'>
                             <label className="label text-white">Provider Name</label>
-                            <input defaultValue={user?.displayName} readOnly name='name' type="text" className="input text-black w-full" placeholder="" />
+                            <input defaultValue={user?.displayName} readOnly name='name' type="text" className="input text-black dark:text-white rounded-lg w-full" placeholder="" />
 
                         </fieldset>
                         <fieldset className='sm:w-1/2'>
                             <label className="label text-white">Provider Email</label>
-                            <input defaultValue={user?.email} readOnly name='email' type="email" className="input text-black w-full" placeholder="" />
+                            <input defaultValue={user?.email} readOnly name='email' type="email" className="input text-black dark:text-white rounded-lg w-full" placeholder="" />
                         </fieldset>
                     </div>
                     
                     <legend className="fieldset-legend text-white">Description</legend>
-                    <textarea required name='describe' className="textarea text-black w-full h-20" placeholder="Describe your car"></textarea>
+                    <textarea required name='describe' className="textarea text-black dark:text-white rounded-lg w-full h-20" placeholder="Describe your car"></textarea>
 
                     <div className="flex justify-center">
                         <button className='px-4 bg-[#DC2626] text-white  py-3 rounded-xl shadow-0'>Add Car</button>

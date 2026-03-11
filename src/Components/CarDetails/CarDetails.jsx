@@ -155,7 +155,7 @@ const CarDetails = () => {
             </div>
         )}
 
-        <div className="bg-white flex flex-col lg:flex-row justify-between gap-5 rounded-lg p-6">
+        <div className="bg-white dark:bg-gray-900 flex flex-col lg:flex-row justify-between gap-5 rounded-lg p-6">
             <figure className="relative lg:w-1/2">
                 <img
                 src={filterCar?.imageUrl}
@@ -177,7 +177,7 @@ const CarDetails = () => {
                         
                     </div>
 
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-gray-600 dark:text-white/75 mb-6">
                         {filterCar?.description}
                     </p>
 
@@ -254,7 +254,7 @@ const CarDetails = () => {
             
             
         </div>
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center my-4'>
 
             <Link className=' px-3 py-2 bg-[#DC2626] text-white rounded-lg' to={-1}>Go Back</Link>
         </div>

@@ -130,7 +130,7 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
     if (deleted) {return null};
 
     return (
-        <div className={`p-5 ${myCars.length === 1 && 'lg:w-[500px]'}  flex flex-col gap-3 justify-between bg-[#ffffff] shadow-md hover:shadow-lg transition duration-300 rounded-xl`}>
+        <div className={`p-5 ${myCars.length === 1 && 'lg:w-[500px]'}  flex flex-col gap-3 justify-between bg-[#ffffff] dark:bg-gray-900 shadow-md hover:shadow-lg transition duration-300 rounded-xl`}>
             <figure>
                 <img src={myCar?.imageUrl} alt={myCar?.carName}  className={ 'w-full h-[200px] md:h-[250px] rounded-xl  object-cover'}/>
             </figure>
@@ -156,30 +156,30 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
                $ {
                     myCar?.rentPrice
                 }
-                <span className='font-normal text-gray-700'> /day</span>
+                <span className='font-normal text-gray-700 dark:text-white/75'> /day</span>
             </div>
             <div className="btn-grp flex gap-3">
                 <div className='w-1/2'>
-                    <button type='button' onClick={()=>{handleModalUpdate()}} className="py-3 bg-[#16A34A] rounded-lg text-white btn w-full">Update</button> 
+                    <button type='button' onClick={()=>{handleModalUpdate()}} className="py-3 bg-[#16A34A] rounded-lg text-white btn border-0 w-full">Update</button> 
                 
-                    <dialog ref={confirmModalRef} className="modal modal-bottom sm:modal-middle">
-                        <div className="modal-box">
+                    <dialog ref={confirmModalRef} className="modal rounded-2xl modal-bottom sm:modal-middle">
+                        <div className="modal-box rounded-2xl dark:bg-gray-700">
                             <h3 className="font-bold text-xl text-center text-green-600">Update Your Car</h3>
                             
-                            <div className="modal-action"> 
+                            <div className="modal-action rounded-2xl"> 
 
                                 <form onSubmit={(e)=> {handleUpdateCar(e , myCar?._id)}}>
 
-                                    <div className='flex flex-col sm:flex-row gap-1'>
+                                    <div className='flex flex-col sm:flex-row gap-1 rounded-2xl'>
                                         <fieldset className='sm:w-1/2'>
 
-                                            <label className="label text-gray-800">Car Name</label>
-                                            <input name='carName' required defaultValue={myCar?.carName} type="text" className="input text-gray-800 w-full" placeholder="Car" />
+                                            <label className="label text-gray-800 dark:text-white">Car Name</label>
+                                            <input name='carName' required defaultValue={myCar?.carName} type="text" className="input text-gray-800 dark:text-white rounded-lg w-full" placeholder="Car" />
                                         </fieldset>
                                         <fieldset className='sm:w-1/2'>
 
-                                            <label className="label text-gray-800">Category</label>
-                                            <select name='category'  defaultValue={myCar?.category} className="select text-gray-800 w-full">
+                                            <label className="label text-gray-800 dark:text-white">Category</label>
+                                            <select name='category'  defaultValue={myCar?.category} className="select text-gray-800 dark:text-white rounded-lg w-full">
                                                 <option disabled={true}>Select a Category</option>
                                                 <option>Sedan</option>
                                                 <option>SUV</option>
@@ -192,39 +192,39 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
 
                                     <div className="flex flex-col sm:flex-row gap-1">
                                         <fieldset className='sm:w-1/2'>
-                                            <label className="label w-full text-gray-800">Provider Name</label>
-                                            <input defaultValue={myCar?.providerName} readOnly type="text" className="input text-gray-800 w-full" />
+                                            <label className="label w-full text-gray-800 dark:text-white">Provider Name</label>
+                                            <input defaultValue={myCar?.providerName} readOnly type="text" className="input text-gray-800 dark:text-white rounded-lg w-full" />
                                         </fieldset>
                                         <fieldset className='sm:w-1/2'>
-                                            <label className="label text-gray-800">Provider Email</label>
-                                            <input defaultValue={myCar?.providerEmail} readOnly type="text" className="input text-gray-800 w-full" placeholder="" />
+                                            <label className="label text-gray-800 dark:text-white">Provider Email</label>
+                                            <input defaultValue={myCar?.providerEmail} readOnly type="text" className="input text-gray-800 dark:text-white rounded-lg w-full" placeholder="" />
 
                                         </fieldset>
                                     </div>
                                     <div className="flex flex-col sm:flex-row gap-1">
                                         <fieldset className='sm:w-1/2'>
-                                            <label className="label w-full text-gray-800">Rent Price</label>
-                                            <input defaultValue={myCar?.rentPrice} required name='rentPrice' type="number" className="input text-gray-800 w-full" placeholder="Rent Price(Per day)" />
+                                            <label className="label w-full text-gray-800 dark:text-white">Rent Price</label>
+                                            <input defaultValue={myCar?.rentPrice} required name='rentPrice' type="number" className="input text-gray-800 dark:text-white rounded-lg w-full" placeholder="Rent Price(Per day)" />
                                         </fieldset>
                                         <fieldset className='sm:w-1/2'>
-                                            <label className="label text-gray-800">Location</label>
-                                            <input defaultValue={myCar?.location} required name='location' type="text" className="input text-gray-800 w-full" placeholder="Location" />
+                                            <label className="label text-gray-800 dark:text-white">Location</label>
+                                            <input defaultValue={myCar?.location} required name='location' type="text" className="input text-gray-800 dark:text-white rounded-lg w-full" placeholder="Location" />
 
                                         </fieldset>
                                     </div>
                                     
                                     
-                                    <label className="label text-gray-800">Image URL</label>
+                                    <label className="label text-gray-800 dark:text-white">Image URL</label>
                                     
-                                    <input name='img' type="url" defaultValue={myCar?.imageUrl}  placeholder="imgURL" pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" title="Must be valid URL" className="input text-gray-800 w-full validator" required/>
+                                    <input name='img' type="url" defaultValue={myCar?.imageUrl}  placeholder="imgURL" pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" title="Must be valid URL" className="input text-gray-800 dark:text-white rounded-lg w-full validator" required/>
                                     
                                     
-                                    <legend className="fieldset-legend text-gray-800">Description</legend>
-                                    <textarea defaultValue={myCar?.description} name='describe' className="textarea text-gray-800 w-full h-20" placeholder="Describe your car"></textarea>
+                                    <legend className="fieldset-legend text-gray-800 dark:text-white">Description</legend>
+                                    <textarea defaultValue={myCar?.description} name='describe' className="textarea text-gray-800 dark:text-white rounded-lg w-full h-20" placeholder="Describe your car"></textarea>
 
 
-                                    <button type='submit' className="btn my-3 bg-green-600 text-white py-3 rounded-xl w-full">Update</button>
-                                    <button type='button' onClick={()=>handleCancelUpdate()} className="btn bg-[#DC2626] text-white py-3 rounded-xl w-full">Cancel</button>
+                                    <button type='submit' className="btn my-3 bg-green-600 border-0 text-white py-3 rounded-xl w-full">Update</button>
+                                    <button type='button' onClick={()=>handleCancelUpdate()} className="btn border-0 bg-[#DC2626] text-white py-3 rounded-xl w-full">Cancel</button>
                                 </form>
                             
                                
@@ -236,15 +236,15 @@ const ListingCar = ({car,cars, setCars, myCars, myCarPromise}) => {
 
                 </div>
                 <div className="w-1/2">
-                    <button type='button' onClick={()=>{handleModalDelete()}} className="py-3 bg-[#DC2626] rounded-lg text-white btn w-full">Delete</button> 
+                    <button type='button' onClick={()=>{handleModalDelete()}} className="py-3 border-0 bg-[#DC2626] rounded-lg text-white btn w-full">Delete</button> 
                     <dialog ref={deleteModal} className="modal modal-bottom sm:modal-middle">
                         <div className="modal-box">
-                            <h3 className="font-bold text-lg text-center text-black">Are you sure to Delete this car</h3>
+                            <h3 className="font-bold text-lg text-center text-black dark:text-white">Are you sure to Delete this car</h3>
                             
                             <div className="modal-action flex justify-between"> 
                                 
-                                <button onClick={()=>handleDeleteCar(myCar)} className="btn my-3 bg-[#dc2626] text-white py-4 rounded-xl w-1/2">Yes</button>
-                                <button onClick={()=>handleCancelDelete()} className="btn my-3 bg-green-600 text-white py-4 rounded-xl w-1/2">No</button>
+                                <button onClick={()=>handleDeleteCar(myCar)} className="btn my-3 border-0 bg-[#dc2626] text-white py-4 rounded-xl w-1/2">Yes</button>
+                                <button onClick={()=>handleCancelDelete()} className="btn my-3 border-0  bg-green-600 text-white py-4 rounded-xl w-1/2">No</button>
                             
                             </div>
                         </div>

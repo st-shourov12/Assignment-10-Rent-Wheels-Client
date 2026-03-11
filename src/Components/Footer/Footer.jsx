@@ -74,7 +74,7 @@ const Footer = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/md-mirazul-islam-shourov-69a05637a/" target="_blank" className="flex items-center gap-2 hover:text-[#06B6D4] transition duration-300">
+                            <a href="https://www.linkedin.com/in/miraz-shourov/" target="_blank" className="flex items-center gap-2 hover:text-[#06B6D4] transition duration-300">
                             <FaLinkedin /> LinkedIn
                             </a>
                         </li>

@@ -8,21 +8,21 @@ const TopCar = () => {
     const topRatedCars = [...cars].sort((a, b) => b.rentPrice - a.rentPrice).slice(0, 3);
     
     return (
-        <div className='py-16 bg-[#E2E8F0]' >
+        <div className='py-16 bg-[#E2E8F0] dark:bg-gray-800' >
             <div className="container mx-auto  text-center">
 
-                <h2 className="text-3xl font-bold text-[#0F172A] text-center">
+                <h2 className="text-3xl font-bold text-[#0F172A] dark:text-white text-center">
                 {/* <h2 className="text-3xl font-bold text-white text-center"> */}
                     Top Rated <span className="text-[#DC2626]">Cars</span>
                 </h2>
                 
-                <p className="text-gray-700 my-5 sm:text-xl text-center">Drive the finest luxury vehicles at unbeatable prices</p>
+                <p className="text-gray-700 dark:text-white/75 my-5 sm:text-xl text-center">Drive the finest luxury vehicles at unbeatable prices</p>
                 {/* <p className="text-gray-100 my-5 text-xl text-center">Drive the finest luxury vehicles at unbeatable prices</p> */}
 
                 <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 justify-between'>
                     {
                         topRatedCars.map((car, i)=>(
-                            <Link to={`/cars/${car._id}`} key={i} className="p-5 shadow-md hover:shadow-lg transition duration-300 flex flex-col gap-4 w-[280px] sm:w-[400px] lg:w-[300px] 2xl:w-[450px] rounded-xl bg-white">
+                            <Link to={`/cars/${car._id}`} key={i} className="p-5 shadow-md hover:shadow-lg transition duration-300 flex flex-col gap-4 w-[280px] sm:w-[400px] lg:w-[300px] 2xl:w-[450px] rounded-xl bg-white dark:bg-gray-900 justify-between dark:text-white">
                                 
                                 <figure>
                                     <img src={car?.imageUrl} alt={car?.carName} className='w-full h-60 rounded-lg' />

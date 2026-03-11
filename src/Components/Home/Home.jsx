@@ -14,7 +14,7 @@ const Home = () => {
 
 
     return (
-        <div className='bg-[#F5F7FA]'>
+        <div className='bg-[#F5F7FA] dark:bg-gray-700'>
             <HeroSection></HeroSection>
             <HomeSearch></HomeSearch>
             <Suspense fallback={<Spinner></Spinner>}>

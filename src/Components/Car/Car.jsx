@@ -8,7 +8,7 @@ const Car = ({car}) => {
     return (
         <div>
 
-            <div data-tooltip-id="my-tooltip" data-tooltip-content={`Rent $${rentPrice} /day`} className="p-5 shadow-md hover:shadow-lg transition duration-300 flex flex-col gap-4 max-w-[400px] rounded-xl bg-white justify-self-center">
+            <div data-tooltip-id="my-tooltip" data-tooltip-content={`Rent $${rentPrice} /day`} className="p-5 shadow-md hover:shadow-lg transition duration-300 flex flex-col gap-4 max-w-[400px] rounded-xl bg-white dark:bg-black justify-between justify-self-center h-full">
                 <figure className="relative">
                     <img src={imageUrl} alt={carName} className="rounded-xl w-[300px] sm:min-w-[340] h-[200px] mx-auto" />
                     <span className={`px-3 py-2 absolute top-2 right-2 text-white ${availability === "Booked" ? 'bg-red-600' : 'bg-green-600'} rounded-xl`}>{availability}</span>

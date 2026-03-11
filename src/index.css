@@ -1,6 +1,53 @@
 @import "tailwindcss";
-@custom-variant dark (&:where([data-theme=rent-dark], [data-theme=rent-dark] *));
+
+@custom-variant dark (&:where([data-theme=rentwheels-dark], [data-theme=rentwheels-dark] *));
 
 @plugin "daisyui" {
-  themes: rent --default, rent-dark --prefersdark;
+  themes: rentwheels --default, rentwheels-dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: "rentwheels";
+  default: true;
+  color-scheme: light;
+
+  --color-primary: oklch(50% 0.22 25);        /* Racing red */
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: oklch(30% 0.02 260);     /* Dark steel */
+  --color-secondary-content: oklch(100% 0 0);
+  --color-accent: oklch(65% 0.18 45);         /* Warm orange */
+  --color-accent-content: oklch(100% 0 0);
+  --color-neutral: oklch(25% 0.02 260);
+  --color-neutral-content: oklch(100% 0 0);
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(96% 0.005 60);
+  --color-base-300: oklch(91% 0.008 60);
+  --color-base-content: oklch(20% 0.02 260);
+  --color-info: oklch(60% 0.18 240);
+  --color-success: oklch(60% 0.2 145);
+  --color-warning: oklch(75% 0.18 75);
+  --color-error: oklch(58% 0.24 20);
+}
+
+@plugin "daisyui/theme" {
+  name: "rentwheels-dark";
+  default: false;
+  color-scheme: dark;
+
+  --color-primary: oklch(60% 0.22 25);        /* Brighter red for dark */
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: oklch(55% 0.05 260);
+  --color-secondary-content: oklch(100% 0 0);
+  --color-accent: oklch(70% 0.18 45);
+  --color-accent-content: oklch(10% 0 0);
+  --color-neutral: oklch(35% 0.02 260);
+  --color-neutral-content: oklch(100% 0 0);
+  --color-base-100: oklch(16% 0.02 260);
+  --color-base-200: oklch(20% 0.02 260);
+  --color-base-300: oklch(26% 0.02 260);
+  --color-base-content: oklch(93% 0 0);
+  --color-info: oklch(65% 0.18 240);
+  --color-success: oklch(62% 0.2 145);
+  --color-warning: oklch(75% 0.18 75);
+  --color-error: oklch(62% 0.24 20);
 }

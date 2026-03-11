@@ -6,7 +6,7 @@ const Browse = () => {
 
 
     return (
-        <div className='[bg-[#F5F7FA] '>
+        <div className='bg-[#F5F7FA] dark:bg-gray-700'>
             <title>Rent Wheels - All Cars</title>
 
             

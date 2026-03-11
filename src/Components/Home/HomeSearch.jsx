@@ -57,7 +57,7 @@ const HomeSearch = () => {
         <div className='container mx-auto'>
             <div className={`flex flex-col gap-2 md:gap-5 items-center justify-center py-5 my-5 ${searchedCar.length === 0 && 'my-10 lg:my-20' }`}>
 
-                <h2 className="text-2xl lg:text-3xl font-bold text-[#0F172A] text-center">
+                <h2 className="text-2xl lg:text-3xl font-bold text-[#0F172A] dark:text-white text-center">
             
                     <span className="text-[#DC2626]">Search Your </span>Favourite car
                 </h2>
@@ -68,7 +68,7 @@ const HomeSearch = () => {
                 </label>
 
                 {searchedCar.length === 0 ? 
-                    <div className='text-gray-700 text-center px-3 lg:font-semibold font-medium'>
+                    <div className='text-gray-700 dark:text-white text-center px-3 lg:font-semibold font-medium'>
                         <p>Book your dream car in just a few clicks with our simple and user-friendly process.</p>
                     </div>
                     :

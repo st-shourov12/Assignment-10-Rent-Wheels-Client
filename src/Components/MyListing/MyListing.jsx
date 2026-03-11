@@ -23,7 +23,7 @@ const MyListing = () => {
 
 
     return (
-        <div className="bg-[#F5F7FA] ">
+        <div className="bg-[#F5F7FA] dark:bg-gray-700">
             <title>Rent Wheels - My Cars</title>
 
             <div className='p-5 sm:p-10  max-w-full flex flex-col justify-baseline gap-5 items-center mx-auto'>

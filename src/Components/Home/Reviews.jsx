@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { FaFaceLaughBeam, FaTrophy } from "react-icons/fa6";
 const Reviews = () => {
     return (
-            <section className="py-16 bg-[#E2E8F0]">
+            <section className="py-16 bg-[#E2E8F0] dark:bg-gray-800">
                 <div className="container mx-auto text-center">
                     <h2 className="text-3xl font-bold text-[#0F172A] mb-10">
                     <span className="text-[#DC2626]">Reviews</span>

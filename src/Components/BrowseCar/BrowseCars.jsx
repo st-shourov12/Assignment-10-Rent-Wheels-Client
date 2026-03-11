@@ -44,11 +44,11 @@ const BrowseCars = () => {
 
     console.log(cars);
     return (
-        <div className='bg-[#F5F7FA]'>
+        <div className='bg-[#F5F7FA] dark:bg-gray-700'>
             <h2 className="text-4xl text-center font-bold py-10">{searchedCar.length === cars.length ? 'All' : 'Searched'} <span className="text-[#6C63FF]">Cars</span> ({searchedCar.length})</h2>
 
             <div className='flex justify-center my-5'>
-                <label className='input '>
+                <label className='input rounded-lg'>
                         <input value={search} onChange={e => {setSearch(e.target.value) }} type="search"  placeholder='Search cars by name' />
                 </label>
                 
